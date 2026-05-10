@@ -639,12 +639,12 @@ export const TOOLS: Tool[] = [
     nameUr: "اے آئی اواتار",
     tagline: "Photo + script → real video",
     description:
-      "Apni photo + Urdu/English script — AI realistic talking video banayega. Free 1/day with watermark.",
+      "Apni photo + Urdu/English script — AI realistic talking video banayega. Free 3/day, queue-based.",
     category: "video",
-    status: "coming-soon",
+    status: "beta",
     icon: UserCircle,
     hero: true,
-    badge: "Best with Premium",
+    badge: "Beta · Free queue",
   },
   {
     slug: "ai-video-generator",

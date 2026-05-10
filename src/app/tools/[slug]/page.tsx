@@ -14,6 +14,7 @@ import { TranscribeTool } from "@/components/tools/TranscribeTool";
 import { VoiceoverTool } from "@/components/tools/VoiceoverTool";
 import { VideoEditorTool } from "@/components/tools/VideoEditorTool";
 import { ImageUpscalerTool } from "@/components/tools/ImageUpscalerTool";
+import { AvatarTool } from "@/components/tools/AvatarTool";
 import { getTool, TOOLS } from "@/lib/tools";
 import type { Metadata } from "next";
 
@@ -299,6 +300,8 @@ function ToolBody({ slug }: { slug: string }) {
       return <BetaPlaceholder name="Auto Captions" />;
     case "video-editor":
       return <VideoEditorTool />;
+    case "ai-avatar":
+      return <AvatarTool />;
     default:
       return <BetaPlaceholder name="Tool" />;
   }
