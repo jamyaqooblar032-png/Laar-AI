@@ -436,7 +436,7 @@ export const TOOLS: Tool[] = [
     description:
       "Brand name + niche do — multiple professional logo options milengi. SVG export bhi.",
     category: "image",
-    status: "coming-soon",
+    status: "active",
     icon: Sparkles,
   },
   {
@@ -446,7 +446,7 @@ export const TOOLS: Tool[] = [
     description:
       "Click-worthy thumbnails for YouTube, Insta posts, Facebook. Templates + AI.",
     category: "image",
-    status: "coming-soon",
+    status: "active",
     icon: FileImage,
   },
   {
@@ -456,7 +456,7 @@ export const TOOLS: Tool[] = [
     description:
       "Trending Pakistani templates + custom text. Roman Urdu support.",
     category: "image",
-    status: "coming-soon",
+    status: "active",
     icon: Smile,
   },
   {
@@ -466,7 +466,7 @@ export const TOOLS: Tool[] = [
     description:
       "Apna idea do — transparent PNG sticker pack ban jayega.",
     category: "image",
-    status: "coming-soon",
+    status: "active",
     icon: Sticker,
   },
   {
@@ -476,7 +476,7 @@ export const TOOLS: Tool[] = [
     description:
       "Cool profile pictures generate karo — anime, realistic, cartoon styles.",
     category: "image",
-    status: "coming-soon",
+    status: "active",
     icon: UserCircle,
   },
   {
@@ -486,7 +486,7 @@ export const TOOLS: Tool[] = [
     description:
       "Description do, HD 4K wallpapers banao — phone, laptop, ya tablet ke liye.",
     category: "image",
-    status: "coming-soon",
+    status: "active",
     icon: Wallpaper,
   },
   {

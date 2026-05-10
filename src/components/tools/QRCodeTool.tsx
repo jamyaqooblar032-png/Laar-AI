@@ -176,7 +176,7 @@ export function QRCodeTool() {
           </Button>
         </div>
         <p className="mt-3 text-xs text-fg-subtle text-center flex items-center justify-center gap-1">
-          <Sparkles className="h-3 w-3" /> Free unlimited \u00b7 No watermark
+          <Sparkles className="h-3 w-3" /> Free unlimited · No watermark
         </p>
       </div>
     </div>

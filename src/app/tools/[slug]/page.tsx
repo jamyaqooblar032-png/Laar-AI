@@ -25,6 +25,7 @@ import { UnitConverterTool } from "@/components/tools/UnitConverterTool";
 import { JSONFormatterTool } from "@/components/tools/JSONFormatterTool";
 import { ColorPaletteTool } from "@/components/tools/ColorPaletteTool";
 import { ImageCompressorTool } from "@/components/tools/ImageCompressorTool";
+import { ImagePresetTool } from "@/components/tools/ImagePresetTool";
 import { getTool, TOOLS } from "@/lib/tools";
 import type { Metadata } from "next";
 
@@ -330,6 +331,18 @@ function ToolBody({ slug }: { slug: string }) {
       return <ColorPaletteTool />;
     case "image-compressor":
       return <ImageCompressorTool />;
+    case "logo-generator":
+      return <ImagePresetTool slug="logo-generator" />;
+    case "thumbnail-maker":
+      return <ImagePresetTool slug="thumbnail-maker" />;
+    case "sticker-generator":
+      return <ImagePresetTool slug="sticker-generator" />;
+    case "avatar-generator":
+      return <ImagePresetTool slug="avatar-generator" />;
+    case "wallpaper-generator":
+      return <ImagePresetTool slug="wallpaper-generator" />;
+    case "meme-generator":
+      return <ImagePresetTool slug="meme-generator" />;
     default:
       return <BetaPlaceholder name="Tool" />;
   }
