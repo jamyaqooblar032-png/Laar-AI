@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { groqChat, groqChatStream } from "@/lib/groq";
+import { llmChat, llmChatStream } from "@/lib/llm";
 import { buildMessages, PROMPTS } from "@/lib/prompts";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
@@ -42,18 +42,20 @@ export async function POST(req: NextRequest) {
 
   try {
     if (stream) {
-      const stream = await groqChatStream(messages);
-      return new Response(stream, {
+      const { stream: s, provider } = await llmChatStream(messages);
+      return new Response(s, {
         headers: {
           "Content-Type": "text/plain; charset=utf-8",
           "X-RateLimit-Remaining": String(limit.remaining),
+          "X-LLM-Provider": provider,
         },
       });
     }
-    const text = await groqChat(messages);
+    const { text, provider } = await llmChat(messages);
     return NextResponse.json({
       output: text,
       remaining: limit.remaining,
+      provider,
     });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Unknown error";

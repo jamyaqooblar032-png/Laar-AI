@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { groqChatStream, type ChatMessage } from "@/lib/groq";
+import { type ChatMessage } from "@/lib/groq";
+import { llmChatStream } from "@/lib/llm";
 import { PROMPTS } from "@/lib/prompts";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
@@ -37,9 +38,12 @@ export async function POST(req: NextRequest) {
   ];
 
   try {
-    const stream = await groqChatStream(fullMessages);
+    const { stream, provider } = await llmChatStream(fullMessages);
     return new Response(stream, {
-      headers: { "Content-Type": "text/plain; charset=utf-8" },
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-LLM-Provider": provider,
+      },
     });
   } catch (err) {
     console.error("[/api/chat] error:", err);
