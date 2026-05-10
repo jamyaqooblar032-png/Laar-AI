@@ -13,6 +13,7 @@ import { BackgroundRemoverTool } from "@/components/tools/BackgroundRemoverTool"
 import { TranscribeTool } from "@/components/tools/TranscribeTool";
 import { VoiceoverTool } from "@/components/tools/VoiceoverTool";
 import { VideoEditorTool } from "@/components/tools/VideoEditorTool";
+import { ImageUpscalerTool } from "@/components/tools/ImageUpscalerTool";
 import { getTool, TOOLS } from "@/lib/tools";
 import type { Metadata } from "next";
 
@@ -293,7 +294,7 @@ function ToolBody({ slug }: { slug: string }) {
     case "ai-voiceover":
       return <VoiceoverTool />;
     case "image-upscaler":
-      return <BetaPlaceholder name="Image Upscaler" />;
+      return <ImageUpscalerTool />;
     case "captions":
       return <BetaPlaceholder name="Auto Captions" />;
     case "video-editor":
