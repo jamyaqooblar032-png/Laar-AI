@@ -17,6 +17,8 @@ export async function POST(req: NextRequest) {
     }
 
     const contentType = req.headers.get("content-type") || "audio/wav";
+    const url = new URL(req.url);
+    const wantsTimestamps = url.searchParams.get("timestamps") === "1";
     const buf = await req.arrayBuffer();
     if (buf.byteLength === 0) {
       return NextResponse.json({ error: "No audio uploaded" }, { status: 400 });
@@ -28,8 +30,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { text } = await hfTranscribe(buf, contentType);
-    return NextResponse.json({ text, remaining: limit.remaining });
+    const { text, chunks } = await hfTranscribe(buf, contentType, {
+      returnTimestamps: wantsTimestamps,
+    });
+    return NextResponse.json({ text, chunks, remaining: limit.remaining });
   } catch (err) {
     const status = err instanceof HFError ? err.status ?? 500 : 500;
     const message = err instanceof Error ? err.message : "Transcription failed";

@@ -16,12 +16,21 @@ function ensureKey() {
   return HF_API_KEY;
 }
 
+export type WhisperChunk = {
+  text: string;
+  timestamp: [number, number | null];
+};
+
 export async function hfTranscribe(
   audio: ArrayBuffer,
-  contentType: string = "audio/wav"
-): Promise<{ text: string; language?: string }> {
+  contentType: string = "audio/wav",
+  options: { returnTimestamps?: boolean } = {}
+): Promise<{ text: string; chunks?: WhisperChunk[]; language?: string }> {
   const key = ensureKey();
-  const res = await fetch(`${HF_BASE}/openai/whisper-large-v3`, {
+  const url = options.returnTimestamps
+    ? `${HF_BASE}/openai/whisper-large-v3?return_timestamps=true`
+    : `${HF_BASE}/openai/whisper-large-v3`;
+  const res = await fetch(url, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${key}`,
@@ -36,8 +45,11 @@ export async function hfTranscribe(
     throw new HFError(`Whisper failed: ${err.slice(0, 200)}`, res.status);
   }
 
-  const data = (await res.json()) as { text?: string; chunks?: unknown };
-  return { text: data.text ?? "" };
+  const data = (await res.json()) as {
+    text?: string;
+    chunks?: WhisperChunk[];
+  };
+  return { text: data.text ?? "", chunks: data.chunks };
 }
 
 export async function hfImageGenerate(
