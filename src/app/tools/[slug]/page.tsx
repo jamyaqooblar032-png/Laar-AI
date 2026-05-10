@@ -12,6 +12,7 @@ import { ImageGenTool } from "@/components/tools/ImageGenTool";
 import { BackgroundRemoverTool } from "@/components/tools/BackgroundRemoverTool";
 import { TranscribeTool } from "@/components/tools/TranscribeTool";
 import { VoiceoverTool } from "@/components/tools/VoiceoverTool";
+import { VideoEditorTool } from "@/components/tools/VideoEditorTool";
 import { getTool, TOOLS } from "@/lib/tools";
 import type { Metadata } from "next";
 
@@ -296,7 +297,7 @@ function ToolBody({ slug }: { slug: string }) {
     case "captions":
       return <BetaPlaceholder name="Auto Captions" />;
     case "video-editor":
-      return <BetaPlaceholder name="Mini Video Editor" />;
+      return <VideoEditorTool />;
     default:
       return <BetaPlaceholder name="Tool" />;
   }
