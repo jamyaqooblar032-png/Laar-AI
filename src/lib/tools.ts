@@ -367,7 +367,7 @@ export const TOOLS: Tool[] = [
     description:
       "Math, Physics, Biology, English — sawal puchen, AI Urdu mein step-by-step samjhayega.",
     category: "text",
-    status: "coming-soon",
+    status: "active",
     icon: GraduationCap,
   },
 
@@ -959,7 +959,7 @@ export const TOOLS: Tool[] = [
     description:
       "Naam aur relation do — heartfelt birthday message Urdu ya English mein.",
     category: "pakistani",
-    status: "coming-soon",
+    status: "active",
     icon: Cake,
   },
   {
@@ -969,7 +969,7 @@ export const TOOLS: Tool[] = [
     description:
       "Eid, Pakistan Day, Independence Day ke liye custom wishes + design templates.",
     category: "pakistani",
-    status: "coming-soon",
+    status: "active",
     icon: PartyPopper,
   },
 
@@ -1033,6 +1033,72 @@ export const TOOLS: Tool[] = [
     category: "utility",
     status: "active",
     icon: Calculator,
+  },
+  {
+    slug: "wedding-wishes",
+    name: "Wedding Wishes Generator",
+    tagline: "Shaadi mubarak messages",
+    description:
+      "Beautiful Urdu/English shaadi wishes — bride, groom, family ke liye.",
+    category: "pakistani",
+    status: "active",
+    icon: Heart,
+    api: "groq",
+  },
+  {
+    slug: "condolence-message",
+    name: "Condolence (Taziyat) Writer",
+    tagline: "Sincere taziyat messages",
+    description:
+      "Respectful condolence messages with Islamic phrases — Urdu, Roman Urdu, English.",
+    category: "pakistani",
+    status: "active",
+    icon: Heart,
+    api: "groq",
+  },
+  {
+    slug: "name-generator",
+    name: "Baby Name Generator",
+    tagline: "Muslim baby names + meaning",
+    description:
+      "10 beautiful Muslim baby names with meanings + origin — boy/girl, modern/classical.",
+    category: "pakistani",
+    status: "active",
+    icon: Sparkles,
+    api: "groq",
+  },
+  {
+    slug: "interview-prep",
+    name: "Interview Prep Coach",
+    tagline: "10 Q&A in STAR format",
+    description:
+      "Job interview ke liye top 10 questions + STAR-format model answers.",
+    category: "text",
+    status: "active",
+    icon: Briefcase,
+    api: "groq",
+  },
+  {
+    slug: "resume-bullet",
+    name: "Resume Bullet Writer",
+    tagline: "Achievement-focused bullets",
+    description:
+      "5 punchy resume bullets — quantified, action-verb led, STAR framework.",
+    category: "text",
+    status: "active",
+    icon: FileText,
+    api: "groq",
+  },
+  {
+    slug: "real-estate-listing",
+    name: "Real Estate Listing Writer",
+    tagline: "Property descriptions in Pakistani style",
+    description:
+      "DHA, Bahria, Karachi, Lahore — attractive property listings with amenities highlights.",
+    category: "pakistani",
+    status: "active",
+    icon: FileText,
+    api: "groq",
   },
 ];
 

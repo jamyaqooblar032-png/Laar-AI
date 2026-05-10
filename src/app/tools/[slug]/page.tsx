@@ -299,6 +299,87 @@ function ToolBody({ slug }: { slug: string }) {
           outputClassName="font-mono text-xs"
         />
       );
+    case "ai-tutor":
+      return (
+        <TextTool
+          toolSlug="ai-tutor"
+          inputLabel="Apna sawaal poochhain (subject + question)"
+          inputPlaceholder="e.g. Class 9 Math: Pythagoras theorem ko Urdu mein samjhao"
+          cta="Samjhayein"
+        />
+      );
+    case "birthday-wishes":
+      return (
+        <TextTool
+          toolSlug="birthday-wishes"
+          inputLabel="Kis ke liye? (naam + rishtaa + style)"
+          inputPlaceholder="e.g. Bhai Ali, casual aur funny style mein"
+          cta="Wishes Generate Karo"
+        />
+      );
+    case "eid-wishes":
+      return (
+        <TextTool
+          toolSlug="eid-wishes"
+          inputLabel="Kis ke liye? (rishtaa + Eid kaunsi)"
+          inputPlaceholder="e.g. Ammi-Abu ke liye Eid-ul-Fitr ki wishes"
+          cta="Eid Mubarak Likho"
+        />
+      );
+    case "wedding-wishes":
+      return (
+        <TextTool
+          toolSlug="wedding-wishes"
+          inputLabel="Couple ke naam + relation"
+          inputPlaceholder="e.g. Ahmed aur Sara — bhai ki shaadi"
+          cta="Wishes Likho"
+        />
+      );
+    case "condolence-message":
+      return (
+        <TextTool
+          toolSlug="condolence-message"
+          inputLabel="Kis ka intiqaal? (rishtaa)"
+          inputPlaceholder="e.g. Mere dost ke walid sahab"
+          cta="Taziyat Likho"
+        />
+      );
+    case "name-generator":
+      return (
+        <TextTool
+          toolSlug="name-generator"
+          inputLabel="Gender + Origin + Meaning preference"
+          inputPlaceholder="e.g. Baby boy Muslim, Quranic, modern, meaning related to nur/light"
+          cta="Naam Tajweez Karein"
+        />
+      );
+    case "interview-prep":
+      return (
+        <TextTool
+          toolSlug="interview-prep"
+          inputLabel="Role + company + experience level"
+          inputPlaceholder="e.g. Frontend Developer fresh graduate, Pakistani startup"
+          cta="Questions + Answers"
+        />
+      );
+    case "resume-bullet":
+      return (
+        <TextTool
+          toolSlug="resume-bullet"
+          inputLabel="Role + responsibility/achievement"
+          inputPlaceholder="e.g. Customer Service Manager — handled 200+ daily customer queries"
+          cta="Bullets Likho"
+        />
+      );
+    case "real-estate-listing":
+      return (
+        <TextTool
+          toolSlug="real-estate-listing"
+          inputLabel="Property details"
+          inputPlaceholder="e.g. 10 Marla house in DHA Phase 5 Lahore, 5 bed 6 bath, 4.5 crore"
+          cta="Listing Likho"
+        />
+      );
     case "background-remover":
       return <BackgroundRemoverTool />;
     case "transcription":
