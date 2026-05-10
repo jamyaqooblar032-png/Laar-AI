@@ -78,7 +78,7 @@ export type Tool = {
   icon: LucideIcon;
   hero?: boolean;
   badge?: string;
-  api?: "groq" | "huggingface" | "pollinations" | "whisper" | "elevenlabs" | "ffmpeg" | "client" | "external";
+  api?: "groq" | "huggingface" | "pollinations" | "whisper" | "elevenlabs" | "ffmpeg" | "client" | "external" | "devin";
 };
 
 export const CATEGORIES: Record<
@@ -1099,6 +1099,17 @@ export const TOOLS: Tool[] = [
     status: "active",
     icon: FileText,
     api: "groq",
+  },
+  {
+    slug: "devin-coder",
+    name: "Devin Coding Pro (Beta)",
+    tagline: "Premium AI engineer · 1 task/day",
+    description:
+      "Devin AI plans, codes, tests, and ships real software autonomously. Premium compute. 1 task/day per user (beta).",
+    category: "text",
+    status: "beta",
+    icon: Code2,
+    api: "devin",
   },
 ];
 

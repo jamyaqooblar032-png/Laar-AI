@@ -26,6 +26,7 @@ import { JSONFormatterTool } from "@/components/tools/JSONFormatterTool";
 import { ColorPaletteTool } from "@/components/tools/ColorPaletteTool";
 import { ImageCompressorTool } from "@/components/tools/ImageCompressorTool";
 import { ImagePresetTool } from "@/components/tools/ImagePresetTool";
+import { DevinCoderTool } from "@/components/tools/DevinCoderTool";
 import { getTool, TOOLS } from "@/lib/tools";
 import type { Metadata } from "next";
 
@@ -380,6 +381,8 @@ function ToolBody({ slug }: { slug: string }) {
           cta="Listing Likho"
         />
       );
+    case "devin-coder":
+      return <DevinCoderTool />;
     case "background-remover":
       return <BackgroundRemoverTool />;
     case "transcription":
