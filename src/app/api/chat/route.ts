@@ -1,28 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { groqChatStream, type ChatMessage } from "@/lib/groq";
 import { PROMPTS } from "@/lib/prompts";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
-const requestCounts = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT = 60;
-
-function rateLimit(ip: string) {
-  const now = Date.now();
-  const entry = requestCounts.get(ip);
-  if (!entry || now > entry.resetAt) {
-    requestCounts.set(ip, { count: 1, resetAt: now + 60 * 60 * 1000 });
-    return true;
-  }
-  if (entry.count >= RATE_LIMIT) return false;
-  entry.count++;
-  return true;
-}
-
 export async function POST(req: NextRequest) {
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "anonymous";
-  if (!rateLimit(ip)) {
+  const ip = getClientIp(req);
+  const limit = rateLimit(`chat:${ip}`, { limit: 60, windowMs: 3600_000 });
+  if (!limit.allowed) {
     return NextResponse.json(
       { error: "Rate limit exceeded. Try again in an hour." },
       { status: 429 }

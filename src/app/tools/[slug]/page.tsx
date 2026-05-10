@@ -9,6 +9,9 @@ import { TextTool } from "@/components/tools/TextTool";
 import { TranslatorTool } from "@/components/tools/TranslatorTool";
 import { RomanToUrduTool } from "@/components/tools/RomanToUrduTool";
 import { ImageGenTool } from "@/components/tools/ImageGenTool";
+import { BackgroundRemoverTool } from "@/components/tools/BackgroundRemoverTool";
+import { TranscribeTool } from "@/components/tools/TranscribeTool";
+import { VoiceoverTool } from "@/components/tools/VoiceoverTool";
 import { getTool, TOOLS } from "@/lib/tools";
 import type { Metadata } from "next";
 
@@ -283,15 +286,15 @@ function ToolBody({ slug }: { slug: string }) {
         />
       );
     case "background-remover":
-      return <BetaPlaceholder name="Background Remover" />;
+      return <BackgroundRemoverTool />;
+    case "transcription":
+      return <TranscribeTool />;
+    case "ai-voiceover":
+      return <VoiceoverTool />;
     case "image-upscaler":
       return <BetaPlaceholder name="Image Upscaler" />;
     case "captions":
       return <BetaPlaceholder name="Auto Captions" />;
-    case "transcription":
-      return <BetaPlaceholder name="Speech-to-Text" />;
-    case "ai-voiceover":
-      return <BetaPlaceholder name="AI Voiceover" />;
     case "video-editor":
       return <BetaPlaceholder name="Mini Video Editor" />;
     default:
