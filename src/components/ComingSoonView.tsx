@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 export function ComingSoonView({ slug }: { slug: string }) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const tool = getTool(slug);
 
   if (!tool) return null;
@@ -17,18 +19,33 @@ export function ComingSoonView({ slug }: { slug: string }) {
   const cat = CATEGORIES[tool.category];
   const toolSlug = tool.slug;
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email.trim()) return;
-    if (typeof window !== "undefined") {
-      const key = "laarai_waitlist";
-      const list: { email: string; tool: string; ts: number }[] = JSON.parse(
-        localStorage.getItem(key) || "[]"
-      );
-      list.push({ email, tool: toolSlug, ts: Date.now() });
-      localStorage.setItem(key, JSON.stringify(list));
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          toolSlug,
+          source: "tool-page",
+        }),
+      });
+      if (!res.ok) {
+        const data = (await res
+          .json()
+          .catch(() => ({}))) as { error?: string };
+        throw new Error(data.error ?? "Submit fail");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Try again later");
+    } finally {
+      setSubmitting(false);
     }
-    setSubmitted(true);
   }
 
   return (
@@ -85,8 +102,14 @@ export function ComingSoonView({ slug }: { slug: string }) {
                 placeholder="apka@email.com"
                 className="flex-1 rounded-full border border-border bg-bg py-3 px-5 text-sm focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
-              <Button type="submit" variant="primary" size="default">
-                <Bell className="h-4 w-4" /> Notify Me
+              <Button
+                type="submit"
+                variant="primary"
+                size="default"
+                disabled={submitting}
+              >
+                <Bell className="h-4 w-4" />{" "}
+                {submitting ? "Saving..." : "Notify Me"}
               </Button>
             </form>
           ) : (
@@ -94,6 +117,10 @@ export function ComingSoonView({ slug }: { slug: string }) {
               <Sparkles className="h-4 w-4" />
               Saved! Aapko launch pe email karenge.
             </div>
+          )}
+
+          {error && !submitted && (
+            <p className="mt-3 text-xs text-red-300">{error}</p>
           )}
 
           <p className="mt-10 text-xs text-fg-subtle">
