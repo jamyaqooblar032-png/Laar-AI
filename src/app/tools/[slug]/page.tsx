@@ -16,6 +16,15 @@ import { VideoEditorTool } from "@/components/tools/VideoEditorTool";
 import { ImageUpscalerTool } from "@/components/tools/ImageUpscalerTool";
 import { AvatarTool } from "@/components/tools/AvatarTool";
 import { CaptionsTool } from "@/components/tools/CaptionsTool";
+import { QRCodeTool } from "@/components/tools/QRCodeTool";
+import { PasswordGenTool } from "@/components/tools/PasswordGenTool";
+import { SalatTimesTool } from "@/components/tools/SalatTimesTool";
+import { CalculatorTool } from "@/components/tools/CalculatorTool";
+import { CurrencyConverterTool } from "@/components/tools/CurrencyConverterTool";
+import { UnitConverterTool } from "@/components/tools/UnitConverterTool";
+import { JSONFormatterTool } from "@/components/tools/JSONFormatterTool";
+import { ColorPaletteTool } from "@/components/tools/ColorPaletteTool";
+import { ImageCompressorTool } from "@/components/tools/ImageCompressorTool";
 import { getTool, TOOLS } from "@/lib/tools";
 import type { Metadata } from "next";
 
@@ -303,6 +312,24 @@ function ToolBody({ slug }: { slug: string }) {
       return <VideoEditorTool />;
     case "ai-avatar":
       return <AvatarTool />;
+    case "qr-generator":
+      return <QRCodeTool />;
+    case "password-generator":
+      return <PasswordGenTool />;
+    case "salat-times":
+      return <SalatTimesTool />;
+    case "calculator":
+      return <CalculatorTool />;
+    case "currency-converter":
+      return <CurrencyConverterTool />;
+    case "unit-converter":
+      return <UnitConverterTool />;
+    case "json-formatter":
+      return <JSONFormatterTool />;
+    case "color-palette":
+      return <ColorPaletteTool />;
+    case "image-compressor":
+      return <ImageCompressorTool />;
     default:
       return <BetaPlaceholder name="Tool" />;
   }

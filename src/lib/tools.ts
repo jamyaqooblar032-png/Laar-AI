@@ -506,7 +506,7 @@ export const TOOLS: Tool[] = [
     description:
       "Image upload karo, dominant colors aur palette codes (HEX, RGB) milenge.",
     category: "image",
-    status: "coming-soon",
+    status: "active",
     icon: Palette,
   },
   {
@@ -516,7 +516,7 @@ export const TOOLS: Tool[] = [
     description:
       "JPG/PNG ko chhota karo bina quality khoye. Perfect for web aur uploads.",
     category: "image",
-    status: "coming-soon",
+    status: "active",
     icon: Shapes,
   },
 
@@ -863,7 +863,7 @@ export const TOOLS: Tool[] = [
     description:
       "Pretty print, validate, fix JSON — sab kuch.",
     category: "developer",
-    status: "coming-soon",
+    status: "active",
     icon: Code2,
   },
 
@@ -876,7 +876,7 @@ export const TOOLS: Tool[] = [
     description:
       "Apna shehar select karo — Fajr, Zuhr, Asr, Maghrib, Isha ke exact times.",
     category: "pakistani",
-    status: "coming-soon",
+    status: "active",
     icon: Calendar,
   },
   {
@@ -981,7 +981,7 @@ export const TOOLS: Tool[] = [
     description:
       "URL, text, WiFi, contact — sab kuch ka QR. Custom colors aur logo support.",
     category: "utility",
-    status: "coming-soon",
+    status: "active",
     icon: QrCode,
   },
   {
@@ -991,7 +991,7 @@ export const TOOLS: Tool[] = [
     description:
       "Customizable length, special chars — strong passwords for any account.",
     category: "utility",
-    status: "coming-soon",
+    status: "active",
     icon: Code2,
   },
   {
@@ -1001,7 +1001,7 @@ export const TOOLS: Tool[] = [
     description:
       "Live exchange rates — PKR, USD, EUR, AED, SAR, INR sab.",
     category: "utility",
-    status: "coming-soon",
+    status: "active",
     icon: Calculator,
   },
   {
@@ -1011,7 +1011,7 @@ export const TOOLS: Tool[] = [
     description:
       "Home loan EMI, car finance, income tax, zakat calculator.",
     category: "utility",
-    status: "coming-soon",
+    status: "active",
     icon: Calculator,
   },
   {
@@ -1031,7 +1031,7 @@ export const TOOLS: Tool[] = [
     description:
       "Meters/feet, kg/lbs, °C/°F, currency — sab convert karo.",
     category: "utility",
-    status: "coming-soon",
+    status: "active",
     icon: Calculator,
   },
 ];
