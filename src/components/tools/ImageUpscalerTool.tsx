@@ -220,9 +220,9 @@ export function ImageUpscalerTool() {
           Real-ESRGAN AI upscaling — Phase 2
         </h3>
         <p className="mt-1 text-sm text-fg-muted">
-          Yeh v1 high-quality canvas upscale hai (browser-side, fast,
-          unlimited). Phase 2 mein Real-ESRGAN integrate ho raha hai — jo
-          purani photos ko HD/4K detail ke saath enhance kar sakta hai.
+          This is the v1 high-quality canvas upscaler (browser-side, fast,
+          unlimited). Phase 2 integrates Real-ESRGAN, which restores HD / 4K
+          detail in old photos.
         </p>
       </div>
     </div>

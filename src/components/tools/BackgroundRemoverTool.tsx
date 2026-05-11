@@ -170,7 +170,7 @@ export function BackgroundRemoverTool() {
           </p>
         )}
         <p className="mt-4 text-xs text-fg-subtle">
-          Processing browser ya server side hoti hai depending on your image. PNG output mein transparent background.
+          Processing happens in the browser or on the server depending on the image. Output is a PNG with a transparent background.
         </p>
       </div>
     </div>

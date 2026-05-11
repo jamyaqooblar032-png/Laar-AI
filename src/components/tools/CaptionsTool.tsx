@@ -245,9 +245,9 @@ export function CaptionsTool() {
           )}
 
           <p className="mt-3 text-xs text-fg-subtle">
-            SRT download karke video editor mein import karke styled
-            captions add kar sakte ho. Phase 2 mein direct burn-in (video par
-            captions overlay) bhi aa raha hai.
+            Download the SRT and import it into any video editor to add
+            styled captions. Phase 2 will add direct burn-in (caption
+            overlay rendered straight into the video).
           </p>
         </div>
       )}

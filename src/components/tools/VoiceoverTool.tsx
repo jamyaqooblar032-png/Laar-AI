@@ -13,11 +13,11 @@ const SAMPLE_TEXTS: { label: string; text: string }[] = [
   },
   {
     label: "Roman Urdu",
-    text: "Asalam-o-Alaikum! Aaj main aap ko bataunga ek aisi cheez jo aap ki life badal degi. Tayar ho jayein!",
+    text: "Hi! Today I'm going to share something that could genuinely change your life. Get ready.",
   },
   {
     label: "News-style",
-    text: "Breaking news: Karachi mein aaj ek bara qadam uthaya gaya jis se technology ke shoq rakhne walon ko ek nayi ummeed mili.",
+    text: "Breaking news: a major step was taken in Karachi today that has given technology enthusiasts fresh reasons to be optimistic.",
   },
 ];
 
@@ -76,7 +76,7 @@ export function VoiceoverTool() {
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
-              placeholder="Apna script likhein... (English, Urdu, Roman Urdu — sab supported)"
+              placeholder="Write your script... (English, Urdu and Roman Urdu are all supported)"
               rows={8}
               className="mt-2 w-full rounded-xl border border-border bg-bg p-4 text-sm leading-relaxed placeholder:text-fg-subtle focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/20"
             />
@@ -178,7 +178,7 @@ export function VoiceoverTool() {
           ))}
         </div>
         <p className="mt-4 text-xs text-fg-subtle">
-          Native Urdu voice premium tier mein aa rahi hai. Multilingual voices
+          A native Urdu voice is coming to the premium tier. Multilingual voices
           (Bella) ab Urdu kaafi acha bolti hai.
         </p>
       </div>

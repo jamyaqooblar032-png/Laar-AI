@@ -59,7 +59,7 @@ export function VideoEditorTool() {
     if (ffmpegReady || loadingFFmpeg) return;
     if (typeof SharedArrayBuffer === "undefined") {
       setError(
-        "Aap ka browser SharedArrayBuffer support nahi karta. Latest Chrome/Edge use karein."
+        "Your browser doesn't support SharedArrayBuffer. Please use the latest Chrome or Edge."
       );
       return;
     }
@@ -89,7 +89,7 @@ export function VideoEditorTool() {
       setFfmpegReady(true);
     } catch (err) {
       setError(
-        "FFmpeg load failed. Cross-origin headers ki wajah se shayad — Vercel pe deploy hone ke baad sahi chalega."
+        "FFmpeg failed to load. This is usually a cross-origin headers issue — it should work correctly after deployment."
       );
       console.error(err);
     } finally {
@@ -99,11 +99,11 @@ export function VideoEditorTool() {
 
   function handleFile(f: File) {
     if (!f.type.startsWith("video/")) {
-      setError("Sirf video files supported hain.");
+      setError("Only video files are supported.");
       return;
     }
     if (f.size > 200 * 1024 * 1024) {
-      setError("Max 200MB. Yeh file zyada bari hai.");
+      setError("This file is over the 200 MB limit.");
       return;
     }
     setError(null);
@@ -212,7 +212,7 @@ export function VideoEditorTool() {
             <Upload className="h-7 w-7 text-fg-muted" />
             <p className="text-base font-medium">Video upload karein</p>
             <p className="text-xs text-fg-subtle">
-              MP4, MOV, WebM — max 200MB · sab kuch browser mein process hota hai
+              MP4, MOV, WebM — max 200 MB · everything is processed inside your browser
             </p>
           </button>
         ) : (
@@ -418,7 +418,7 @@ export function VideoEditorTool() {
         </h3>
         <p className="mt-1 text-sm text-fg-muted">
           Multi-track timeline · transitions · animated Urdu captions ·
-          stickers · music library · merge clips. Phase 2 mein live ho raha
+          stickers · music library · merging clips. Live in Phase 2.
           hai.
         </p>
       </div>

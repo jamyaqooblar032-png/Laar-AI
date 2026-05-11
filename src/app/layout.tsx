@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,56 +21,51 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const nastaliq = Noto_Nastaliq_Urdu({
-  variable: "--font-noto-nastaliq",
-  subsets: ["arabic"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://laar-ai.vercel.app"),
   title: {
-    default: "Laar AI — Pakistan ka All-in-One AI Toolkit",
+    default: "Laar AI — The all-in-one AI toolkit",
     template: "%s · Laar AI",
   },
   description:
-    "AI tools jo aap ki zubaan samajhte hain. Chatbot, image gen, captions, video editor, avatar, voiceover, Roman Urdu → Nastaliq, aur 60+ tools — sab ek jagah, free.",
+    "60+ professional AI tools for writing, image generation, audio, video, documents, and developers. Free forever.",
   keywords: [
     "AI tools",
-    "Urdu AI",
-    "Pakistani AI",
-    "AI image generator",
     "AI chatbot",
-    "Urdu subtitles",
-    "Roman Urdu to Urdu",
+    "AI image generator",
+    "AI voiceover",
+    "AI subtitles",
     "AI avatar",
-    "video editor",
+    "AI video editor",
+    "free AI toolkit",
     "Laar AI",
   ],
   authors: [{ name: "Laar AI" }],
   creator: "Laar AI",
   openGraph: {
     type: "website",
-    locale: "en_PK",
+    locale: "en_US",
     url: "https://laar-ai.vercel.app",
-    title: "Laar AI — Pakistan ka All-in-One AI Toolkit",
+    title: "Laar AI — The all-in-one AI toolkit",
     description:
-      "60+ AI tools that speak your language. Built for Pakistani creators.",
+      "60+ professional AI tools for writing, images, audio, video, and code. Free forever.",
     siteName: "Laar AI",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Laar AI — Pakistan ka All-in-One AI Toolkit",
+    title: "Laar AI — The all-in-one AI toolkit",
     description:
-      "60+ AI tools that speak your language. Built for Pakistani creators.",
+      "60+ professional AI tools for writing, images, audio, video, and code. Free forever.",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#10b981",
   width: "device-width",
   initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#08080c" },
+  ],
 };
 
 export default function RootLayout({
@@ -80,11 +76,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${nastaliq.variable} h-full`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-bg text-fg antialiased">
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

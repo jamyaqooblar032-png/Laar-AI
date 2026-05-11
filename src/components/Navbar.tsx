@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "./ui/button";
-import { GithubIcon } from "./icons/BrandIcons";
+import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { href: "/tools", label: "All Tools" },
+  { href: "/tools", label: "Tools" },
   { href: "/#categories", label: "Categories" },
   { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
@@ -18,15 +18,9 @@ const NAV_ITEMS = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 16);
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(max > 0 ? Math.min(100, (y / max) * 100) : 0);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -35,87 +29,82 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "sticky top-0 z-50 w-full transition-all duration-200",
         scrolled
-          ? "border-b border-border-soft bg-bg/85 backdrop-blur-xl shadow-[0_4px_20px_-8px_rgba(0,0,0,0.4)]"
-          : "border-b border-transparent bg-bg/30 backdrop-blur-md"
+          ? "border-b border-border-soft bg-bg/85 backdrop-blur-xl"
+          : "border-b border-transparent bg-bg/40 backdrop-blur-md"
       )}
     >
-      {/* Scroll progress bar */}
-      <div
-        className="pointer-events-none absolute bottom-0 left-0 h-px bg-gradient-to-r from-primary via-cyan-400 to-purple-400 transition-[width] duration-150"
-        style={{ width: `${progress}%` }}
-      />
-
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-8">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-10">
           <Logo />
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-1 lg:flex">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="group relative text-sm text-fg-muted transition-colors hover:text-fg"
+                className="rounded-full px-3 py-1.5 text-sm text-fg-muted transition-colors hover:bg-bg-elevated hover:text-fg"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-primary to-cyan-400 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </nav>
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
           <Link
-            href="https://github.com/jamyaqooblar032-png/Laar-AI"
-            target="_blank"
-            rel="noreferrer"
-            className="text-fg-muted transition-all hover:text-fg hover:scale-110"
-            aria-label="GitHub"
+            href="/settings"
+            className="rounded-full px-3 py-1.5 text-sm text-fg-muted transition-colors hover:bg-bg-elevated hover:text-fg"
           >
-            <GithubIcon className="h-5 w-5" />
+            Settings
           </Link>
           <Link href="/tools">
             <Button variant="primary" size="sm" className="magnetic">
-              <Sparkles className="h-4 w-4" />
-              Try Free
+              Get started
             </Button>
           </Link>
         </div>
 
-        <button
-          className="lg:hidden p-2 -mr-2 rounded-lg hover:bg-bg-elevated transition-colors"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            className="-mr-2 inline-flex h-9 w-9 items-center justify-center rounded-full text-fg-muted transition-colors hover:bg-bg-elevated hover:text-fg"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       <div
         className={cn(
-          "lg:hidden border-t border-border-soft transition-all duration-300 overflow-hidden glass-strong",
+          "lg:hidden overflow-hidden border-t border-border-soft bg-bg/95 backdrop-blur-xl transition-all duration-200",
           open ? "max-h-96" : "max-h-0 border-t-transparent"
         )}
       >
         <nav className="flex flex-col gap-1 p-4">
-          {NAV_ITEMS.map((item, i) => (
+          {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-lg px-3 py-2.5 text-sm text-fg-muted hover:bg-bg-elevated hover:text-fg transition-colors",
-                open && "animate-fade-up"
-              )}
-              style={open ? { animationDelay: `${i * 40}ms` } : undefined}
+              className="rounded-lg px-3 py-2.5 text-sm text-fg-muted hover:bg-bg-elevated hover:text-fg transition-colors"
             >
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/settings"
+            onClick={() => setOpen(false)}
+            className="rounded-lg px-3 py-2.5 text-sm text-fg-muted hover:bg-bg-elevated hover:text-fg transition-colors"
+          >
+            Settings
+          </Link>
           <Link href="/tools" onClick={() => setOpen(false)} className="mt-2">
             <Button variant="primary" size="sm" className="w-full">
-              <Sparkles className="h-4 w-4" />
-              Try Free
+              Get started
             </Button>
           </Link>
         </nav>

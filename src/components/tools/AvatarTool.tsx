@@ -127,8 +127,8 @@ export function AvatarTool() {
           Request received!
         </h2>
         <p className="mt-3 text-fg-muted">
-          Aap ke avatar video ki request queue mein hai. 5-15 min mein
-          ready ho jayegi — link aap ke email par milegi.
+          Your avatar video request is queued. It will be ready in 5-15
+          minutes — the link will arrive in your email.
         </p>
         <p className="mt-6 text-xs text-fg-subtle">
           Email: <span className="text-fg">{email}</span>
@@ -165,10 +165,9 @@ export function AvatarTool() {
               className="flex w-full flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-border-soft bg-bg-elevated py-8 transition hover:border-primary/40 hover:bg-bg-soft"
             >
               <Upload className="h-5 w-5 text-fg-muted" />
-              <p className="text-sm font-medium">Apni photo upload karein</p>
+              <p className="text-sm font-medium">Upload your photo</p>
               <p className="text-xs text-fg-subtle">
-                Front-facing, clear face · max 5MB · ya skip karein default
-                avatar use hoga
+                Front-facing, clear face · max 5 MB · skip to use the default avatar
               </p>
             </button>
           ) : (
@@ -205,12 +204,12 @@ export function AvatarTool() {
 
         <div className="rounded-2xl border border-border bg-bg-card p-6">
           <h3 className="text-sm font-medium mb-3">
-            2. Script (Urdu, English, ya Roman Urdu)
+            2. Script (English, Urdu or Roman Urdu)
           </h3>
           <textarea
             value={script}
             onChange={(e) => setScript(e.target.value)}
-            placeholder="Asalam-o-Alaikum! Main Laar AI use kar raha hun, aap bhi try karein..."
+            placeholder="Hi! I've been using Laar AI — you should give it a try too..."
             rows={6}
             className="w-full rounded-xl border border-border bg-bg p-4 text-sm leading-relaxed placeholder:text-fg-subtle focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/20"
           />

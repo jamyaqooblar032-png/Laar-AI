@@ -9,7 +9,7 @@ const EXAMPLES = [
   "Pakistan zindabad",
   "Mujhe bhook lagi hai",
   "Karachi ki traffic main phasa hua hun",
-  "Aaj bohat acha din hai mausam bhi acha hai",
+  "Aaj bahut acha din hai aur mausam bhi acha hai",
 ];
 
 export function RomanToUrduTool() {

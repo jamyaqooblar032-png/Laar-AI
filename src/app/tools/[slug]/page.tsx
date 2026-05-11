@@ -304,45 +304,45 @@ function ToolBody({ slug }: { slug: string }) {
       return (
         <TextTool
           toolSlug="ai-tutor"
-          inputLabel="Apna sawaal poochhain (subject + question)"
-          inputPlaceholder="e.g. Class 9 Math: Pythagoras theorem ko Urdu mein samjhao"
-          cta="Samjhayein"
+          inputLabel="Your question (subject + question)"
+          inputPlaceholder="e.g. Class 9 Math: explain the Pythagoras theorem"
+          cta="Explain it"
         />
       );
     case "birthday-wishes":
       return (
         <TextTool
           toolSlug="birthday-wishes"
-          inputLabel="Kis ke liye? (naam + rishtaa + style)"
-          inputPlaceholder="e.g. Bhai Ali, casual aur funny style mein"
-          cta="Wishes Generate Karo"
+          inputLabel="Who is it for? (name + relation + style)"
+          inputPlaceholder="e.g. My brother Ali, casual and funny tone"
+          cta="Generate wishes"
         />
       );
     case "eid-wishes":
       return (
         <TextTool
           toolSlug="eid-wishes"
-          inputLabel="Kis ke liye? (rishtaa + Eid kaunsi)"
-          inputPlaceholder="e.g. Ammi-Abu ke liye Eid-ul-Fitr ki wishes"
-          cta="Eid Mubarak Likho"
+          inputLabel="Who is it for? (relation + which festival)"
+          inputPlaceholder="e.g. Parents, Eid-ul-Fitr wishes"
+          cta="Write greetings"
         />
       );
     case "wedding-wishes":
       return (
         <TextTool
           toolSlug="wedding-wishes"
-          inputLabel="Couple ke naam + relation"
-          inputPlaceholder="e.g. Ahmed aur Sara — bhai ki shaadi"
-          cta="Wishes Likho"
+          inputLabel="Couple's names + your relation"
+          inputPlaceholder="e.g. Ahmed and Sara — my brother's wedding"
+          cta="Write wishes"
         />
       );
     case "condolence-message":
       return (
         <TextTool
           toolSlug="condolence-message"
-          inputLabel="Kis ka intiqaal? (rishtaa)"
-          inputPlaceholder="e.g. Mere dost ke walid sahab"
-          cta="Taziyat Likho"
+          inputLabel="Who passed away? (relation)"
+          inputPlaceholder="e.g. My friend's father"
+          cta="Write condolence"
         />
       );
     case "name-generator":
@@ -351,7 +351,7 @@ function ToolBody({ slug }: { slug: string }) {
           toolSlug="name-generator"
           inputLabel="Gender + Origin + Meaning preference"
           inputPlaceholder="e.g. Baby boy Muslim, Quranic, modern, meaning related to nur/light"
-          cta="Naam Tajweez Karein"
+          cta="Suggest names"
         />
       );
     case "interview-prep":
@@ -367,9 +367,9 @@ function ToolBody({ slug }: { slug: string }) {
       return (
         <TextTool
           toolSlug="resume-bullet"
-          inputLabel="Role + responsibility/achievement"
+          inputLabel="Role + responsibility / achievement"
           inputPlaceholder="e.g. Customer Service Manager — handled 200+ daily customer queries"
-          cta="Bullets Likho"
+          cta="Write bullets"
         />
       );
     case "real-estate-listing":
@@ -378,7 +378,7 @@ function ToolBody({ slug }: { slug: string }) {
           toolSlug="real-estate-listing"
           inputLabel="Property details"
           inputPlaceholder="e.g. 10 Marla house in DHA Phase 5 Lahore, 5 bed 6 bath, 4.5 crore"
-          cta="Listing Likho"
+          cta="Write listing"
         />
       );
     case "devin-coder":
@@ -434,16 +434,16 @@ function ToolBody({ slug }: { slug: string }) {
 
 function BetaPlaceholder({ name }: { name: string }) {
   return (
-    <div className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-10 text-center">
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 px-3 py-1 text-xs uppercase tracking-wider text-blue-300">
+    <div className="rounded-2xl border border-border bg-bg-card p-10 text-center">
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-bg-soft px-3 py-1 text-xs uppercase tracking-wider text-fg-muted">
         Beta · Active development
       </span>
-      <h2 className="mt-4 font-display text-xl font-bold">
-        {name} interface aa raha hai
+      <h2 className="mt-4 font-display text-xl font-semibold tracking-tight">
+        {name} interface is on the way
       </h2>
       <p className="mx-auto mt-2 max-w-md text-sm text-fg-muted">
-        Backend ready hai, UI iss week launch ho rahi hai. Aap chahein to
-        notify me list pe sign up kar lein.
+        The backend is ready and the UI ships this week. Join the notify list
+        to be the first to know when it&apos;s live.
       </p>
     </div>
   );
