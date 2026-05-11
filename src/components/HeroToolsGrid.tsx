@@ -13,11 +13,11 @@ export function HeroToolsGrid() {
               Featured tools
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl lg:text-5xl">
-              The most-used tools, in one place.
+              The essentials, in one place.
             </h2>
             <p className="mt-4 text-base text-fg-muted leading-relaxed max-w-xl">
-              A hand-picked set of the tools people open every day — chatbot,
-              image generator, captions, and more.
+              The tools people open every day — a chatbot, an image generator,
+              an editor for the rest of your work.
             </p>
           </div>
           <Link

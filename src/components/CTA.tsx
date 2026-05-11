@@ -17,29 +17,29 @@ export function CTA() {
               Free forever · No signup
             </div>
             <h2 className="mx-auto mt-6 max-w-2xl font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl lg:text-5xl">
-              Start shipping with{" "}
-              <span className="text-primary">Laar AI</span> today.
+              Try one tool.{" "}
+              <span className="text-primary">Decide for yourself.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base text-fg-muted leading-relaxed sm:text-lg">
-              Pick any tool, give it a try, and decide for yourself. No account
-              needed. No credit card. Just results.
+              Every Laar AI tool is open and free right now. No account, no
+              card, no demo call. Open the one you need and start producing.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link href="/tools">
                 <Button variant="primary" size="lg" className="magnetic btn-shine">
                   <Sparkles className="h-4 w-4" />
-                  Explore all tools
+                  Browse the toolkit
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
               <Link href="/tools/chatbot">
                 <Button variant="outline" size="lg" className="magnetic">
-                  Try the chatbot
+                  Open the chatbot
                 </Button>
               </Link>
             </div>
             <p className="mt-7 text-xs text-fg-subtle">
-              New tools added every week.
+              New tools ship every week.
             </p>
           </div>
         </Reveal>

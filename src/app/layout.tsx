@@ -24,12 +24,13 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://laar-ai.vercel.app"),
   title: {
-    default: "Laar AI — The all-in-one AI toolkit",
+    default: "Laar AI — A complete AI workspace",
     template: "%s · Laar AI",
   },
   description:
-    "50+ professional AI tools for writing, image generation, audio, video, and developers. Free forever.",
+    "A focused AI workspace with 58 production-ready tools for writing, design, audio, video and code. Free forever. No signup.",
   keywords: [
+    "AI workspace",
     "AI tools",
     "AI chatbot",
     "AI image generator",
@@ -46,16 +47,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://laar-ai.vercel.app",
-    title: "Laar AI — The all-in-one AI toolkit",
+    title: "Laar AI — A complete AI workspace",
     description:
-      "50+ professional AI tools for writing, images, audio, video, and code. Free forever.",
+      "58 focused AI tools for writing, design, audio, video and code. Built on the best open models. Free forever.",
     siteName: "Laar AI",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Laar AI — The all-in-one AI toolkit",
+    title: "Laar AI — A complete AI workspace",
     description:
-      "50+ professional AI tools for writing, images, audio, video, and code. Free forever.",
+      "58 focused AI tools for writing, design, audio, video and code. Built on the best open models. Free forever.",
   },
 };
 

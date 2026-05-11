@@ -14,22 +14,22 @@ const BELIEFS = [
   {
     icon: Globe2,
     title: "Language is a feature",
-    desc: "Native support for Urdu, Roman Urdu, English and more — no awkward translations.",
+    desc: "Multilingual handling is built into every tool — not a checkbox in settings, not an afterthought.",
   },
   {
     icon: Heart,
-    title: "Built with care",
-    desc: "Every tool is shipped with the same attention to detail you'd expect from your favorite app.",
+    title: "Built with taste",
+    desc: "Every tool ships with the same care for typography, spacing and motion that you'd expect from a craft product.",
   },
   {
     icon: Zap,
-    title: "Fast and free",
-    desc: "No signup. No credit card. Daily limits exist, but the core is free forever.",
+    title: "Speed over signup",
+    desc: "Tools open instantly. No accounts, no popups, no onboarding screens — just the surface and your work.",
   },
   {
     icon: Sparkles,
     title: "Always shipping",
-    desc: `${STATS.total}+ tools today and growing. We ship something new almost every week.`,
+    desc: `${STATS.total} tools today and growing. New tools land most weeks. Old tools stay free.`,
   },
 ];
 
@@ -52,18 +52,18 @@ export default function AboutPage() {
               <span className="text-primary">time, language and craft.</span>
             </h1>
             <p className="mt-6 text-lg text-fg-muted leading-relaxed">
-              Most AI products are built like SaaS dashboards — heavy
-              onboarding, hidden paywalls and tools that feel bolted together.
-              Laar AI is the opposite: one clean toolkit, focused single-purpose
-              tools, and an opinionated design system everywhere.
+              Most AI products feel like dashboards bolted onto an API — heavy
+              onboarding, hidden paywalls and inconsistent surfaces. Laar AI is
+              the opposite: one focused workspace, one tool per problem, one
+              design system everywhere.
             </p>
             <p className="mt-4 text-lg text-fg-muted leading-relaxed">
-              We&apos;ve launched{" "}
+              We&apos;ve shipped{" "}
               <span className="text-fg font-medium tabular-nums">
-                {STATS.total}+
+                {STATS.total}
               </span>{" "}
-              tools so far — chatbot, image generation, captions, video editor,
-              AI avatar, voiceover, transcription and code helpers. All free to use.
+              tools so far — for writing, design, audio, video, code and
+              everything in between. Every one is free to open right now.
             </p>
           </div>
         </section>

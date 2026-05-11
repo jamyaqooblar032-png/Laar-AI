@@ -24,8 +24,9 @@ export function CategoryGrid() {
               A tool for every job.
             </h2>
             <p className="mt-5 text-base text-fg-muted leading-relaxed sm:text-lg">
-              {entries.length} categories. {TOOLS.length}+ tools. One consistent
-              design. Pick the one you need and start working.
+              {entries.length} categories, {TOOLS.length} tools, one design
+              system. Choose the surface you need — the rest stays out of the
+              way.
             </p>
           </div>
         </Reveal>

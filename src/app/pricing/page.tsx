@@ -95,12 +95,13 @@ export default function PricingPage() {
               Pricing
             </div>
             <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              Free for everyone,{" "}
-              <span className="text-primary">forever.</span>
+              Honest pricing,{" "}
+              <span className="text-primary">no surprises.</span>
             </h1>
             <p className="mt-6 text-lg text-fg-muted leading-relaxed">
-              All tools are free to use. No credit card. Pro plans are
-              launching soon for users who need higher limits.
+              Every core tool is free. Pro is built for higher throughput, not
+              to gate the product. Business is for teams who need control,
+              speed and accountability.
             </p>
           </div>
         </section>

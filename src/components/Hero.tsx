@@ -34,27 +34,23 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
               </span>
-              Introducing Laar AI {STATS.total}+ tools
+              v1 · {STATS.total} production-ready tools
               <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
           {/* Headline */}
           <h1 className="mx-auto mt-8 max-w-4xl text-center font-display text-4xl font-semibold leading-[1.05] tracking-tight text-fg sm:text-6xl lg:text-7xl animate-fade-up stagger-1">
-            <span className="text-gradient-fg">The all-in-one</span>
+            <span className="text-gradient-fg">A complete</span>
             <br className="hidden sm:block" />{" "}
-            <span className="text-primary">AI toolkit</span>
-            <span className="text-gradient-fg"> for modern teams.</span>
+            <span className="text-primary">AI workspace</span>
+            <span className="text-gradient-fg">, on the open web.</span>
           </h1>
 
           {/* Subhead */}
           <p className="mx-auto mt-6 max-w-2xl text-center text-base text-fg-muted leading-relaxed sm:text-lg animate-fade-up stagger-2">
-            Chatbot, image generator, captions, video editor, AI avatar,
-            voiceover, transcription and{" "}
-            <span className="font-medium text-fg">
-              {STATS.total}+ professional tools
-            </span>{" "}
-            — built on top of the best open models. Free forever.
+            Writing, design, video, code, voice — {STATS.total} focused tools,
+            built on the best open models, available without a signup.
           </p>
 
           {/* CTAs */}
@@ -62,7 +58,7 @@ export function Hero() {
             <Link href="/tools">
               <Button variant="primary" size="lg" className="magnetic btn-shine">
                 <Sparkles className="h-4 w-4" />
-                Explore {STATS.total}+ tools
+                Open the toolkit
               </Button>
             </Link>
             <Link href="/tools/chatbot">
@@ -77,15 +73,15 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-fg-subtle animate-fade-up stagger-4">
             <span className="inline-flex items-center gap-1.5">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-              No credit card required
+              No signup
             </span>
             <span className="inline-flex items-center gap-1.5">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-              Free forever tier
+              Free forever
             </span>
             <span className="inline-flex items-center gap-1.5">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-              Privacy-first
+              Built for privacy
             </span>
           </div>
 

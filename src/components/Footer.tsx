@@ -37,8 +37,8 @@ export function Footer() {
           <div className="col-span-2 md:col-span-2">
             <Logo size="lg" />
             <p className="mt-5 max-w-xs text-sm text-fg-muted leading-relaxed">
-              A professional AI toolkit for writers, creators, students and
-              builders. Free forever.
+              A focused AI workspace for writers, designers, developers and
+              operators. Built with taste.
             </p>
             <div className="mt-6 flex items-center gap-2">
               {[
@@ -115,7 +115,7 @@ export function Footer() {
             © {new Date().getFullYear()} Laar AI. All rights reserved.
           </p>
           <p className="text-xs text-fg-subtle">
-            Built for creators, students and teams.
+            Built for makers who ship.
           </p>
         </div>
       </div>

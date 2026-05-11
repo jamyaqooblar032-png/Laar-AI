@@ -5,23 +5,23 @@ const STEPS = [
   {
     step: "01",
     icon: Search,
-    title: "Pick a tool",
+    title: "Choose a tool",
     description:
-      "Browse the library or search for what you need — chatbot, image generator, transcription, anything.",
+      "Search 58 tools by name, category or keyword. Each one solves a single, clearly defined problem.",
   },
   {
     step: "02",
     icon: Wand2,
-    title: "Give it your input",
+    title: "Provide your input",
     description:
-      "Type, paste, upload or record. Every tool is designed around a single, focused flow.",
+      "Type, paste, upload or record. Every interface is built around a single focused interaction.",
   },
   {
     step: "03",
     icon: Download,
-    title: "Ship the result",
+    title: "Take the result",
     description:
-      "Copy, download, or share directly. No watermarks, no signup, no paywalls on core features.",
+      "Copy, download or share in one click. No watermarks, no signup walls, no upsell on output.",
   },
 ];
 
@@ -36,11 +36,11 @@ export function HowItWorks() {
             How it works
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl lg:text-5xl">
-            Three steps. No setup.
+            From idea to output, in three moves.
           </h2>
           <p className="mt-5 text-base text-fg-muted leading-relaxed sm:text-lg">
-            Skip the onboarding flows and pricing pages. Use the tool, get the
-            result, move on with your day.
+            We optimized for the path from question to answer. No dashboards,
+            no onboarding flows — just the tool, your input, the result.
           </p>
         </Reveal>
 

@@ -4,27 +4,27 @@ import { Reveal } from "./Reveal";
 const WHY = [
   {
     icon: Zap,
-    title: "Fast by default",
+    title: "Designed for speed",
     description:
-      "Powered by Groq, Gemini, FLUX and Whisper — most tools return results in seconds, not minutes.",
+      "Tools return results before you blink. Groq, FLUX and Whisper running on the edge — no spinners, no queues.",
   },
   {
     icon: Globe,
-    title: "Works in your language",
+    title: "Speaks your language",
     description:
-      "Multilingual support across the entire toolkit, including Urdu, Hindi, Arabic, Punjabi and English.",
+      "Native handling of English, Urdu, Hindi, Arabic, Punjabi and 120+ more. Switch mid-conversation and the tool follows.",
   },
   {
     icon: Lock,
-    title: "Privacy-first",
+    title: "Privacy by design",
     description:
-      "We never store your prompts, files or generations. Nothing is used for AI training, ever.",
+      "Your prompts and uploads are never stored, logged or used for training. We see your work for one request, then forget it.",
   },
   {
     icon: Sparkles,
-    title: "Free to start",
+    title: "Free where it matters",
     description:
-      "No signup, no credit card. All core tools are free forever — paid plans only unlock heavier limits.",
+      "Every core tool is free, forever. Paid tiers exist only for heavy throughput — not as a wall around the product.",
   },
 ];
 
@@ -37,11 +37,11 @@ export function Why() {
             Why Laar AI
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl lg:text-5xl">
-            Built like the tools you already love.
+            Designed like the products you trust.
           </h2>
           <p className="mt-5 text-base text-fg-muted leading-relaxed sm:text-lg">
-            One platform, one consistent design system, one shared account.
-            Every tool ships with the same care.
+            One platform, one consistent design system, one focused workflow
+            per tool. Built by engineers who care about the details.
           </p>
         </Reveal>
 

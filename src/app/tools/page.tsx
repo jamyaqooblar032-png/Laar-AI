@@ -38,18 +38,15 @@ export default async function ToolsPage({
               Tools library
             </div>
             <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              <span className="tabular-nums text-primary">
-                {STATS.total}+
-              </span>{" "}
-              AI tools, in one place.
+              The complete{" "}
+              <span className="text-primary">toolkit</span>.
             </h1>
             <p className="mt-4 max-w-2xl text-base text-fg-muted sm:text-lg">
               <span className="text-fg font-medium tabular-nums">
                 {STATS.active}
               </span>{" "}
-              live ·{" "}
-              <span className="tabular-nums">{STATS.comingSoon}</span> coming
-              soon. Browse, search, or filter by category.
+              focused tools across writing, design, audio, video, code and
+              utilities. Search by name or filter by category.
             </p>
           </div>
         </section>
