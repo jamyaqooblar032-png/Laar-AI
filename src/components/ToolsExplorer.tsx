@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { TOOLS, CATEGORIES, type ToolCategory } from "@/lib/tools";
 import { ToolCard } from "./ToolCard";
 import { cn } from "@/lib/utils";
@@ -47,21 +47,33 @@ export function ToolsExplorer({
 
   const categories = Object.entries(CATEGORIES) as [
     ToolCategory,
-    (typeof CATEGORIES)[ToolCategory]
+    (typeof CATEGORIES)[ToolCategory],
   ][];
 
   return (
     <div className="space-y-8">
       {/* Search */}
-      <div className="relative max-w-xl">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-fg-subtle" />
-        <input
-          type="text"
-          placeholder="Search 80+ tools..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-full border border-border bg-bg-card py-3 pl-11 pr-4 text-sm text-fg placeholder:text-fg-subtle focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/20"
-        />
+      <div className="relative max-w-2xl group">
+        <div className="absolute -inset-px rounded-full bg-gradient-to-r from-primary/40 via-cyan-500/30 to-purple-500/40 opacity-0 blur-md transition-opacity duration-500 group-focus-within:opacity-100" />
+        <div className="relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-fg-subtle transition-colors group-focus-within:text-primary" />
+          <input
+            type="text"
+            placeholder="Search 80+ tools..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full rounded-full border border-border bg-bg-card py-3.5 pl-11 pr-11 text-sm text-fg placeholder:text-fg-subtle focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+          />
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex h-7 w-7 items-center justify-center rounded-full text-fg-subtle hover:text-fg hover:bg-fg-subtle/10 transition-all"
+              aria-label="Clear search"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Category pills */}
@@ -85,7 +97,7 @@ export function ToolsExplorer({
 
       {/* Status pills */}
       <div className="flex flex-wrap items-center gap-2 border-t border-border-soft pt-6">
-        <span className="text-xs uppercase tracking-wider text-fg-subtle mr-1">
+        <span className="text-xs uppercase tracking-[0.15em] text-fg-subtle mr-1">
           Status:
         </span>
         {STATUS_FILTERS.map((s) => (
@@ -98,15 +110,19 @@ export function ToolsExplorer({
             {s.label}
           </FilterPill>
         ))}
-        <span className="ml-auto text-sm text-fg-muted">
-          {filtered.length} tools
+        <span className="ml-auto text-sm text-fg-muted tabular-nums">
+          <span className="text-primary font-semibold">{filtered.length}</span>{" "}
+          tools
         </span>
       </div>
 
       {/* Grid */}
       {filtered.length === 0 ? (
         <div className="rounded-2xl border border-border bg-bg-card py-20 text-center">
-          <p className="text-fg-muted">
+          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-fg-subtle/10">
+            <Search className="h-5 w-5 text-fg-subtle" />
+          </div>
+          <p className="mt-4 text-fg-muted">
             No tools match{" "}
             <span className="font-mono text-fg">&ldquo;{query}&rdquo;</span>
           </p>
@@ -126,7 +142,10 @@ export function ToolsExplorer({
         <span className="font-urdu text-base text-primary mr-2" lang="ur">
           مزید آرہا ہے
         </span>
-        New tools added every week. <a href="#" className="underline hover:text-fg">Suggest a tool</a>
+        New tools added every week.{" "}
+        <a href="#" className="underline hover:text-fg transition-colors">
+          Suggest a tool
+        </a>
       </p>
     </div>
   );
@@ -147,11 +166,11 @@ function FilterPill({
     <button
       onClick={onClick}
       className={cn(
-        "rounded-full border transition-colors",
+        "relative rounded-full border transition-all duration-200 active:scale-95",
         small ? "px-3 py-1 text-xs" : "px-4 py-1.5 text-sm",
         active
-          ? "border-primary/40 bg-primary/10 text-primary"
-          : "border-border bg-bg-card text-fg-muted hover:text-fg hover:border-border"
+          ? "border-primary/40 bg-primary/15 text-primary shadow-[0_4px_16px_-4px_rgba(16,185,129,0.4)]"
+          : "border-border bg-bg-card text-fg-muted hover:text-fg hover:border-fg-muted/30 hover:bg-bg-elevated"
       )}
     >
       {children}

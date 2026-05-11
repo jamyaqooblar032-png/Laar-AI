@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { Check, Sparkles, X, Bell } from "lucide-react";
+import { Check, Sparkles, X, Bell, Zap, Crown, Building2 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export const metadata = {
   title: "Pricing",
@@ -14,11 +15,14 @@ export const metadata = {
 const PLANS = [
   {
     name: "Free",
+    icon: Zap,
     price: "₨0",
     cadence: "forever",
     cta: "Get Started",
     href: "/tools",
     description: "All Pakistani creators, students, and dreamers.",
+    accent: "from-emerald-500 to-teal-500",
+    glow: "rgba(16, 185, 129, 0.25)",
     features: [
       { text: "All 80+ tools accessible", yes: true },
       { text: "30 AI text generations / hour", yes: true },
@@ -34,12 +38,15 @@ const PLANS = [
   },
   {
     name: "Pro",
+    icon: Crown,
     price: "₨1,500",
     cadence: "per month",
     cta: "Join Waitlist",
     href: "#waitlist",
     description: "Power users, creators, and businesses.",
     badge: "Coming Soon",
+    accent: "from-primary via-cyan-500 to-purple-500",
+    glow: "rgba(168, 85, 247, 0.35)",
     features: [
       { text: "Everything in Free", yes: true },
       { text: "Unlimited AI generations", yes: true },
@@ -55,12 +62,15 @@ const PLANS = [
   },
   {
     name: "Business",
+    icon: Building2,
     price: "Custom",
     cadence: "starting ₨10K/mo",
     cta: "Contact Sales",
     href: "mailto:hello@laarai.app",
     description: "Agencies, news channels, and enterprises.",
     badge: "Coming Soon",
+    accent: "from-amber-500 to-orange-500",
+    glow: "rgba(245, 158, 11, 0.25)",
     features: [
       { text: "Everything in Pro", yes: true },
       { text: "Unlimited team seats", yes: true },
@@ -81,14 +91,41 @@ export default function PricingPage() {
     <>
       <Navbar />
       <main className="flex-1">
-        <section className="relative">
+        <section className="relative overflow-hidden">
+          {/* Layered bg */}
+          <div className="bg-grid absolute inset-0 -z-10" />
           <div className="bg-spotlight absolute inset-0 -z-10" />
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24 text-center">
-            <p className="text-xs uppercase tracking-wider text-primary font-semibold">
+          <div className="absolute inset-0 -z-10 opacity-60">
+            <div
+              className="blob blob-1"
+              style={{
+                top: "10%",
+                left: "10%",
+                width: "350px",
+                height: "350px",
+              }}
+            />
+            <div
+              className="blob blob-2"
+              style={{
+                top: "5%",
+                right: "10%",
+                width: "350px",
+                height: "350px",
+              }}
+            />
+          </div>
+
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
+            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs text-primary font-medium">
+              <Sparkles className="h-3 w-3" />
               Pricing
-            </p>
-            <h1 className="mt-2 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-              Free for everyone, forever
+            </div>
+            <h1 className="mt-6 font-display text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              Free for everyone,{" "}
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x">
+                forever
+              </span>
             </h1>
             <p className="mt-6 text-lg text-fg-muted leading-relaxed">
               Sab tools free hain — koi credit card nahi, koi subscription
@@ -103,13 +140,36 @@ export default function PricingPage() {
               {PLANS.map((plan) => (
                 <div
                   key={plan.name}
-                  className={
-                    "relative flex flex-col rounded-2xl border bg-bg-card p-8 " +
-                    (plan.highlight
-                      ? "border-primary/40 ring-1 ring-primary/20"
-                      : "border-border")
+                  className={cn(
+                    "group lift-on-hover relative flex flex-col overflow-hidden rounded-2xl border bg-bg-card p-8 transition-all",
+                    plan.highlight
+                      ? "border-primary/40 ring-1 ring-primary/30 md:scale-105"
+                      : "border-border"
+                  )}
+                  style={
+                    plan.highlight
+                      ? {
+                          boxShadow: `0 30px 60px -20px ${plan.glow}, 0 0 0 1px rgba(168, 85, 247, 0.1)`,
+                        }
+                      : undefined
                   }
                 >
+                  {/* Top accent line */}
+                  <div
+                    className={cn(
+                      "absolute inset-x-0 top-0 h-px bg-gradient-to-r opacity-80",
+                      plan.accent
+                    )}
+                  />
+
+                  {/* Hover corner glow */}
+                  <div
+                    className={cn(
+                      "pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-40 bg-gradient-to-br",
+                      plan.accent
+                    )}
+                  />
+
                   {plan.highlight && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <Badge variant="primary">
@@ -117,9 +177,21 @@ export default function PricingPage() {
                       </Badge>
                     </div>
                   )}
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-display text-xl font-bold">
+
+                  <div className="relative">
+                    {/* Icon tile */}
+                    <div
+                      className={cn(
+                        "inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ring-1 ring-inset ring-white/10 shadow-lg",
+                        plan.accent
+                      )}
+                      style={{ boxShadow: `0 8px 28px -10px ${plan.glow}` }}
+                    >
+                      <plan.icon className="h-5 w-5 text-white" />
+                    </div>
+
+                    <div className="mt-5 flex items-center gap-2">
+                      <h3 className="font-display text-xl font-bold tracking-tight">
                         {plan.name}
                       </h3>
                       {plan.badge && <Badge variant="soon">{plan.badge}</Badge>}
@@ -128,37 +200,41 @@ export default function PricingPage() {
                       {plan.description}
                     </p>
                     <div className="mt-6 flex items-baseline gap-1">
-                      <span className="font-display text-4xl font-bold">
+                      <span className="font-display text-4xl font-bold tabular-nums">
                         {plan.price}
                       </span>
                       <span className="text-sm text-fg-muted">
-                        {plan.cadence}
+                        / {plan.cadence}
                       </span>
                     </div>
                   </div>
 
-                  <ul className="mt-8 space-y-3 flex-1">
+                  <ul className="relative mt-8 space-y-3 flex-1">
                     {plan.features.map((f) => (
-                      <li key={f.text} className="flex items-start gap-2 text-sm">
+                      <li key={f.text} className="flex items-start gap-2.5 text-sm">
                         {f.yes ? (
-                          <Check className="h-4 w-4 shrink-0 text-primary mt-0.5" />
+                          <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                            <Check className="h-3 w-3" />
+                          </span>
                         ) : (
-                          <X className="h-4 w-4 shrink-0 text-fg-subtle mt-0.5" />
+                          <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-fg-subtle/10 text-fg-subtle">
+                            <X className="h-3 w-3" />
+                          </span>
                         )}
-                        <span className={f.yes ? "text-fg" : "text-fg-muted"}>
+                        <span className={f.yes ? "text-fg" : "text-fg-muted line-through opacity-60"}>
                           {f.text}
                         </span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-8">
+                  <div className="relative mt-8">
                     {plan.href.startsWith("mailto:") ? (
                       <a href={plan.href}>
                         <Button
-                          variant={plan.highlight ? "primary" : "secondary"}
+                          variant={plan.highlight ? "gradient" : "secondary"}
                           size="default"
-                          className="w-full"
+                          className="w-full magnetic"
                         >
                           {plan.cta}
                         </Button>
@@ -166,9 +242,9 @@ export default function PricingPage() {
                     ) : (
                       <Link href={plan.href}>
                         <Button
-                          variant={plan.highlight ? "primary" : "secondary"}
+                          variant={plan.highlight ? "gradient" : "secondary"}
                           size="default"
-                          className="w-full"
+                          className="w-full magnetic"
                         >
                           {plan.badge ? (
                             <>
@@ -185,11 +261,16 @@ export default function PricingPage() {
               ))}
             </div>
 
-            <div className="mt-16 rounded-2xl border border-border bg-bg-soft p-8 text-center">
-              <h3 className="font-display text-lg font-semibold">
-                Frequently Asked
-              </h3>
-              <div className="mt-6 grid gap-6 text-left sm:grid-cols-2 max-w-3xl mx-auto">
+            <div className="mt-20 rounded-2xl border border-border bg-bg-soft p-8 sm:p-12">
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
+                  FAQ
+                </p>
+                <h3 className="mt-3 font-display text-2xl font-bold tracking-tight sm:text-3xl">
+                  Frequently asked questions
+                </h3>
+              </div>
+              <div className="mt-10 grid gap-8 text-left sm:grid-cols-2 max-w-3xl mx-auto">
                 <FAQ
                   q="Kya sach mein free hai?"
                   a="Haan. Hamari free tier mein 80+ tools, 30 generations/hour, unlimited images, aur 1 avatar/day shamil hain. Free forever."
@@ -218,9 +299,12 @@ export default function PricingPage() {
 
 function FAQ({ q, a }: { q: string; a: string }) {
   return (
-    <div>
-      <h4 className="font-medium text-sm">{q}</h4>
-      <p className="mt-1 text-sm text-fg-muted leading-relaxed">{a}</p>
+    <div className="group relative rounded-xl border border-border-soft bg-bg-card/50 p-5 transition-all hover:border-primary/30 hover:bg-bg-card">
+      <h4 className="font-medium text-sm flex items-start gap-2">
+        <span className="text-primary">Q.</span>
+        {q}
+      </h4>
+      <p className="mt-2 text-sm text-fg-muted leading-relaxed pl-5">{a}</p>
     </div>
   );
 }

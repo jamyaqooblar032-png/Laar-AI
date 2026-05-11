@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { type ChatMessage } from "@/lib/groq";
-import { llmChatStream } from "@/lib/llm";
+import { llmChatStream, type Provider } from "@/lib/llm";
 import { PROMPTS } from "@/lib/prompts";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+
+const VALID_PROVIDERS: Provider[] = ["groq", "gemini", "openrouter"];
 
 export async function POST(req: NextRequest) {
   const ip = getClientIp(req);
@@ -16,20 +18,25 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  let body: { messages?: ChatMessage[] };
+  let body: { messages?: ChatMessage[]; provider?: string };
   try {
     body = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const { messages } = body;
+  const { messages, provider } = body;
   if (!messages || !Array.isArray(messages) || messages.length === 0) {
     return NextResponse.json(
       { error: "Missing 'messages' array" },
       { status: 400 }
     );
   }
+
+  const preferred =
+    provider && VALID_PROVIDERS.includes(provider as Provider)
+      ? (provider as Provider)
+      : undefined;
 
   // Always prepend chatbot system prompt
   const fullMessages: ChatMessage[] = [
@@ -38,11 +45,14 @@ export async function POST(req: NextRequest) {
   ];
 
   try {
-    const { stream, provider } = await llmChatStream(fullMessages);
+    const { stream, provider: usedProvider } = await llmChatStream(
+      fullMessages,
+      { preferredProvider: preferred }
+    );
     return new Response(stream, {
       headers: {
         "Content-Type": "text/plain; charset=utf-8",
-        "X-LLM-Provider": provider,
+        "X-LLM-Provider": usedProvider,
       },
     });
   } catch (err) {
