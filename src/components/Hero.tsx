@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
+import { CountUp } from "./CountUp";
 import { STATS } from "@/lib/tools";
 
 export function Hero() {
@@ -15,6 +16,10 @@ export function Hero() {
       >
         <div className="bg-grid absolute inset-0" />
         <div className="bg-spotlight absolute inset-0" />
+        {/* Floating orbs for depth */}
+        <div className="orb orb-a" />
+        <div className="orb orb-b" />
+        <div className="orb orb-c" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -36,9 +41,10 @@ export function Hero() {
 
           {/* Headline */}
           <h1 className="mx-auto mt-8 max-w-4xl text-center font-display text-4xl font-semibold leading-[1.05] tracking-tight text-fg sm:text-6xl lg:text-7xl animate-fade-up stagger-1">
-            The all-in-one
+            <span className="text-gradient-fg">The all-in-one</span>
             <br className="hidden sm:block" />{" "}
-            <span className="text-primary">AI toolkit</span> for modern teams.
+            <span className="text-primary">AI toolkit</span>
+            <span className="text-gradient-fg"> for modern teams.</span>
           </h1>
 
           {/* Subhead */}
@@ -54,7 +60,7 @@ export function Hero() {
           {/* CTAs */}
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row animate-fade-up stagger-3">
             <Link href="/tools">
-              <Button variant="primary" size="lg" className="magnetic">
+              <Button variant="primary" size="lg" className="magnetic btn-shine">
                 <Sparkles className="h-4 w-4" />
                 Explore {STATS.total}+ tools
               </Button>
@@ -85,9 +91,23 @@ export function Hero() {
 
           {/* Stats row */}
           <div className="mt-16 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-border bg-border max-w-3xl mx-auto animate-fade-up stagger-5">
-            <Stat value={`${STATS.active}+`} label="Live tools" />
-            <Stat value="120+" label="Languages" />
-            <Stat value="$0" label="To get started" />
+            <Stat
+              value={
+                <CountUp
+                  end={STATS.active}
+                  suffix="+"
+                  className="tabular-nums"
+                />
+              }
+              label="Live tools"
+            />
+            <Stat
+              value={
+                <CountUp end={120} suffix="+" className="tabular-nums" />
+              }
+              label="Languages"
+            />
+            <Stat value={<span className="tabular-nums">$0</span>} label="To get started" />
           </div>
         </div>
       </div>
@@ -95,7 +115,13 @@ export function Hero() {
   );
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
+function Stat({
+  value,
+  label,
+}: {
+  value: React.ReactNode;
+  label: string;
+}) {
   return (
     <div className="bg-bg-card p-5 sm:p-6">
       <p className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl tabular-nums">

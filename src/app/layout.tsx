@@ -86,7 +86,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="page-enter min-h-full flex flex-col">{children}</div>
         </ThemeProvider>
       </body>
     </html>

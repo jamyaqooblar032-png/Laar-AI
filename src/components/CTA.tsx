@@ -26,7 +26,7 @@ export function CTA() {
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link href="/tools">
-                <Button variant="primary" size="lg" className="magnetic">
+                <Button variant="primary" size="lg" className="magnetic btn-shine">
                   <Sparkles className="h-4 w-4" />
                   Explore all tools
                   <ArrowRight className="h-4 w-4" />

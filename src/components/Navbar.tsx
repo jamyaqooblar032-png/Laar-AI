@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./theme-toggle";
+import { ScrollProgress } from "./ScrollProgress";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
@@ -109,6 +110,8 @@ export function Navbar() {
           </Link>
         </nav>
       </div>
+
+      <ScrollProgress />
     </header>
   );
 }
