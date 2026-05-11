@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
+import { TechMarquee } from "@/components/TechMarquee";
 import { HeroToolsGrid } from "@/components/HeroToolsGrid";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { Why } from "@/components/Why";
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <TechMarquee />
         <HeroToolsGrid />
         <CategoryGrid />
         <Why />
