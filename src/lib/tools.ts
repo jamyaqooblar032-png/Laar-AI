@@ -10,43 +10,27 @@ import {
   Mic,
   Video,
   UserCircle,
-  Wand2,
   Eraser,
   Maximize2,
   Palette,
-  Music,
-  FileImage,
-  ScanText,
   Code2,
   TerminalSquare,
   QrCode,
   Calendar,
-  Compass,
   BookOpen,
   Heart,
   Cake,
-  Home as HomeIcon,
   Briefcase,
-  Newspaper,
-  Trophy,
   GraduationCap,
   Calculator,
-  Receipt,
-  Scissors,
-  Music2,
-  Gauge,
   Smile,
   PenLine,
-  FileType,
   FileAudio,
-  Volume2,
-  Headphones,
   Quote,
   Shapes,
   Sticker,
   Wallpaper,
   RotateCw,
-  PaintBucket,
   PartyPopper,
   Megaphone,
   Hash,
@@ -62,7 +46,6 @@ export type ToolCategory =
   | "image"
   | "audio"
   | "video"
-  | "document"
   | "developer"
   | "pakistani"
   | "utility";
@@ -105,27 +88,22 @@ export const CATEGORIES: Record<
   },
   audio: {
     label: "Audio & Voice",
-    description: "TTS, transcription, voice cloning, music",
+    description: "Voiceover and transcription, multilingual",
     gradient: "from-indigo-500 to-sky-500",
   },
   video: {
     label: "Video",
-    description: "Editor, captions, avatar, generation",
+    description: "Editor, captions and AI avatar",
     gradient: "from-indigo-500 to-fuchsia-500",
-  },
-  document: {
-    label: "Documents",
-    description: "PDF tools, summarize, chat with docs",
-    gradient: "from-indigo-500 to-amber-500",
   },
   developer: {
     label: "Developer",
-    description: "Code, SQL, regex, README generators",
+    description: "Code, SQL, regex and README helpers",
     gradient: "from-indigo-500 to-purple-500",
   },
   pakistani: {
     label: "Regional",
-    description: "Urdu, Quran, salat times, local content",
+    description: "Urdu, prayer times and local content",
     gradient: "from-indigo-500 to-emerald-500",
   },
   utility: {
@@ -320,17 +298,6 @@ export const TOOLS: Tool[] = [
     api: "groq",
   },
   {
-    slug: "joke-generator",
-    name: "Joke Generator",
-    tagline: "Clean humour, on tap",
-    description:
-      "Family-safe jokes, one-liners and local-style humour for any context.",
-    category: "text",
-    status: "active",
-    icon: Smile,
-    api: "groq",
-  },
-  {
     slug: "quote-generator",
     name: "Quote Generator",
     tagline: "Inspirational quotes",
@@ -372,6 +339,7 @@ export const TOOLS: Tool[] = [
     category: "text",
     status: "active",
     icon: GraduationCap,
+    api: "groq",
   },
 
   // ============ IMAGE ============
@@ -404,72 +372,56 @@ export const TOOLS: Tool[] = [
     name: "Image Upscaler",
     tagline: "Low-res to HD",
     description:
-      "Upscale blurry images to 2x or 4x sharpness with Real-ESRGAN.",
+      "Upscale blurry images to 2x or 4x sharpness with a fast, browser-side enhancer.",
     category: "image",
     status: "active",
     icon: Maximize2,
     hero: true,
-    api: "huggingface",
-  },
-  {
-    slug: "photo-enhancer",
-    name: "Photo Enhancer",
-    tagline: "Old photos, restored",
-    description:
-      "Enhance old, blurry photos with face restoration and a clarity boost.",
-    category: "image",
-    status: "coming-soon",
-    icon: Sparkles,
-  },
-  {
-    slug: "photo-colorizer",
-    name: "Photo Colorizer",
-    tagline: "B&W to colour",
-    description:
-      "Bring black-and-white photos back to life by colourising them with AI.",
-    category: "image",
-    status: "coming-soon",
-    icon: PaintBucket,
+    api: "client",
   },
   {
     slug: "logo-generator",
     name: "Logo Generator",
     tagline: "AI brand logos",
     description:
-      "Provide a brand name and niche and get multiple professional logo options — SVG export included.",
+      "Provide a brand name and niche and get multiple professional logo options — ready to download.",
     category: "image",
     status: "active",
     icon: Sparkles,
+    api: "pollinations",
   },
   {
     slug: "thumbnail-maker",
     name: "Thumbnail Maker",
     tagline: "YouTube and Instagram",
     description:
-      "Create click-worthy thumbnails for YouTube, Instagram and Facebook with templates plus AI.",
+      "Create click-worthy thumbnails for YouTube, Instagram and Facebook with AI.",
     category: "image",
     status: "active",
-    icon: FileImage,
+    icon: ImageIcon,
+    api: "pollinations",
   },
   {
     slug: "meme-generator",
     name: "Meme Generator",
     tagline: "Trending memes",
     description:
-      "Trending meme templates and custom text in any language.",
+      "Generate meme images with AI — describe the joke or scene and get a meme back.",
     category: "image",
     status: "active",
     icon: Smile,
+    api: "pollinations",
   },
   {
     slug: "sticker-generator",
     name: "AI Sticker Generator",
     tagline: "WhatsApp / iMessage stickers",
     description:
-      "Describe a sticker idea and get back a transparent-PNG sticker pack.",
+      "Describe a sticker idea and get back a transparent-PNG sticker.",
     category: "image",
     status: "active",
     icon: Sticker,
+    api: "pollinations",
   },
   {
     slug: "avatar-generator",
@@ -480,6 +432,7 @@ export const TOOLS: Tool[] = [
     category: "image",
     status: "active",
     icon: UserCircle,
+    api: "pollinations",
   },
   {
     slug: "wallpaper-generator",
@@ -490,16 +443,7 @@ export const TOOLS: Tool[] = [
     category: "image",
     status: "active",
     icon: Wallpaper,
-  },
-  {
-    slug: "ocr",
-    name: "Image to Text (OCR)",
-    tagline: "Extract text from images",
-    description:
-      "Pull text out of photos with Urdu and English support — receipts, screenshots, books.",
-    category: "image",
-    status: "coming-soon",
-    icon: ScanText,
+    api: "pollinations",
   },
   {
     slug: "color-palette",
@@ -510,6 +454,7 @@ export const TOOLS: Tool[] = [
     category: "image",
     status: "active",
     icon: Palette,
+    api: "client",
   },
   {
     slug: "image-compressor",
@@ -520,13 +465,14 @@ export const TOOLS: Tool[] = [
     category: "image",
     status: "active",
     icon: Shapes,
+    api: "client",
   },
 
   // ============ AUDIO ============
   {
     slug: "ai-voiceover",
     name: "AI Voiceover (TTS)",
-    tagline: "Urdu and English",
+    tagline: "Natural voices",
     description:
       "Type text and get a natural, human-like voiceover. Multiple voice options.",
     category: "audio",
@@ -546,67 +492,6 @@ export const TOOLS: Tool[] = [
     icon: FileAudio,
     api: "huggingface",
   },
-  {
-    slug: "voice-cloning",
-    name: "Voice Cloning",
-    tagline: "Clone your own voice",
-    description:
-      "Record 30 seconds of your voice, then speak any text in that same voice.",
-    category: "audio",
-    status: "coming-soon",
-    icon: Volume2,
-  },
-  {
-    slug: "music-generator",
-    name: "AI Music Generator",
-    tagline: "Custom background music",
-    description:
-      "Describe a mood or genre and generate royalty-free background music.",
-    category: "audio",
-    status: "coming-soon",
-    icon: Music,
-  },
-  {
-    slug: "vocals-remover",
-    name: "Vocals Remover (Karaoke)",
-    tagline: "Song to instrumental",
-    description:
-      "Strip vocals from any song and get a clean karaoke-ready instrumental track.",
-    category: "audio",
-    status: "coming-soon",
-    icon: Music2,
-  },
-  {
-    slug: "audio-enhancer",
-    name: "Audio Enhancer",
-    tagline: "Noise removal",
-    description:
-      "Remove background noise and boost voice clarity in your recordings.",
-    category: "audio",
-    status: "coming-soon",
-    icon: Headphones,
-  },
-  {
-    slug: "ai-dubbing",
-    name: "AI Video Dubbing",
-    tagline: "English to Urdu, AI-voiced",
-    description:
-      "Dub an English video into Urdu with an AI voice and lip-sync.",
-    category: "audio",
-    status: "coming-soon",
-    icon: Volume2,
-    badge: "Premium",
-  },
-  {
-    slug: "podcast-generator",
-    name: "Podcast Generator",
-    tagline: "Script to podcast audio",
-    description:
-      "Combine a script with multiple voices and get a polished podcast episode.",
-    category: "audio",
-    status: "coming-soon",
-    icon: Mic,
-  },
 
   // ============ VIDEO ============
   {
@@ -614,7 +499,7 @@ export const TOOLS: Tool[] = [
     name: "Auto Subtitles / Captions",
     tagline: "Animated captions",
     description:
-      "Upload a video and get animated, styled, viral-ready subtitles in Urdu or English (Submagic-style).",
+      "Upload a video and get animated, styled, viral-ready subtitles in Urdu or English.",
     category: "video",
     status: "active",
     icon: Subtitles,
@@ -644,159 +529,6 @@ export const TOOLS: Tool[] = [
     icon: UserCircle,
     hero: true,
     badge: "Beta · Free queue",
-  },
-  {
-    slug: "ai-video-generator",
-    name: "AI Video Generator",
-    tagline: "Text to video clips",
-    description:
-      "Describe what you want and generate 5–10 second AI video clips, ready for TikTok and Instagram.",
-    category: "video",
-    status: "coming-soon",
-    icon: Wand2,
-  },
-  {
-    slug: "video-trimmer",
-    name: "Video Trimmer / Cutter",
-    tagline: "Trim without re-encoding",
-    description:
-      "Cut exact seconds out of a video without losing quality, powered by FFmpeg.",
-    category: "video",
-    status: "coming-soon",
-    icon: Scissors,
-  },
-  {
-    slug: "video-merger",
-    name: "Video Merger",
-    tagline: "Multiple clips to one",
-    description:
-      "Combine multiple videos into one — optional transitions included.",
-    category: "video",
-    status: "coming-soon",
-    icon: Video,
-  },
-  {
-    slug: "video-resizer",
-    name: "Video Resizer",
-    tagline: "9:16, 16:9, 1:1",
-    description:
-      "Resize videos for TikTok, YouTube, Instagram Reels and every other platform.",
-    category: "video",
-    status: "coming-soon",
-    icon: Maximize2,
-  },
-  {
-    slug: "video-to-gif",
-    name: "Video to GIF",
-    tagline: "Convert clips to GIFs",
-    description:
-      "Turn short clips into GIFs for WhatsApp, chat apps and social.",
-    category: "video",
-    status: "coming-soon",
-    icon: FileImage,
-  },
-  {
-    slug: "slideshow-maker",
-    name: "Slideshow Maker",
-    tagline: "Photos + music to video",
-    description:
-      "Combine multiple photos with background music to produce a beautiful slideshow video.",
-    category: "video",
-    status: "coming-soon",
-    icon: ImageIcon,
-  },
-  {
-    slug: "subtitle-translator",
-    name: "Subtitle Translator",
-    tagline: "Translate any subtitle",
-    description:
-      "Translate English subtitles to Urdu — or any of 100+ supported languages.",
-    category: "video",
-    status: "coming-soon",
-    icon: Languages,
-  },
-  {
-    slug: "video-summarizer",
-    name: "Video Summarizer",
-    tagline: "Long video to one minute",
-    description:
-      "Turn an hour-long video into a one-minute AI summary. Long-form into shorts.",
-    category: "video",
-    status: "coming-soon",
-    icon: Gauge,
-  },
-
-  // ============ DOCUMENTS ============
-  {
-    slug: "pdf-merger",
-    name: "PDF Merger",
-    tagline: "Combine multiple PDFs",
-    description:
-      "Merge multiple PDFs into a single document — and reorder pages as you go.",
-    category: "document",
-    status: "coming-soon",
-    icon: FileText,
-  },
-  {
-    slug: "pdf-splitter",
-    name: "PDF Splitter",
-    tagline: "Split PDF pages",
-    description:
-      "Extract specific pages from a large PDF or split every page into its own file.",
-    category: "document",
-    status: "coming-soon",
-    icon: Scissors,
-  },
-  {
-    slug: "pdf-compressor",
-    name: "PDF Compressor",
-    tagline: "Reduce file size",
-    description:
-      "Shrink large PDFs without losing quality — perfect for email and chat uploads.",
-    category: "document",
-    status: "coming-soon",
-    icon: Shapes,
-  },
-  {
-    slug: "chat-with-pdf",
-    name: "Chat with PDF",
-    tagline: "Ask your document anything",
-    description:
-      "Upload a PDF — book, report, paper — and have AI answer questions about it.",
-    category: "document",
-    status: "coming-soon",
-    icon: FileText,
-    badge: "Premium",
-  },
-  {
-    slug: "document-summarizer",
-    name: "Document Summarizer",
-    tagline: "PDF / DOCX to bullets",
-    description:
-      "Summarize long documents into clear bullet points in English or Urdu.",
-    category: "document",
-    status: "coming-soon",
-    icon: FileType,
-  },
-  {
-    slug: "pdf-to-word",
-    name: "PDF to Word",
-    tagline: "Editable .docx",
-    description:
-      "Convert PDFs into fully editable Word documents.",
-    category: "document",
-    status: "coming-soon",
-    icon: FileText,
-  },
-  {
-    slug: "word-to-pdf",
-    name: "Word to PDF",
-    tagline: "Professional PDF export",
-    description:
-      "Convert Word, RTF and TXT files into clean PDF documents.",
-    category: "document",
-    status: "coming-soon",
-    icon: FileText,
   },
 
   // ============ DEVELOPER ============
@@ -864,6 +596,7 @@ export const TOOLS: Tool[] = [
     category: "developer",
     status: "active",
     icon: Code2,
+    api: "client",
   },
 
   // ============ REGIONAL ============
@@ -876,79 +609,7 @@ export const TOOLS: Tool[] = [
     category: "pakistani",
     status: "active",
     icon: Calendar,
-  },
-  {
-    slug: "qibla-direction",
-    name: "Qibla Compass",
-    tagline: "Qibla direction finder",
-    description:
-      "Find the exact qibla direction from your location, GPS-based.",
-    category: "pakistani",
-    status: "coming-soon",
-    icon: Compass,
-  },
-  {
-    slug: "islamic-calendar",
-    name: "Islamic Calendar",
-    tagline: "Hijri dates and events",
-    description:
-      "Hijri date converter, Islamic events and a Ramadan calendar.",
-    category: "pakistani",
-    status: "coming-soon",
-    icon: Calendar,
-  },
-  {
-    slug: "quran-reel-maker",
-    name: "Quran Ayat Reel Maker",
-    tagline: "Beautiful Quran reels",
-    description:
-      "Pick an ayat, add an Urdu or English translation and a nasheed background, and export a polished reel.",
-    category: "pakistani",
-    status: "coming-soon",
-    icon: BookOpen,
-    badge: "Regional",
-  },
-  {
-    slug: "wedding-invite",
-    name: "Wedding Invitation Maker",
-    tagline: "Mehndi, baraat, valima",
-    description:
-      "Animated wedding invitation videos — names, dates and venue, ready to share.",
-    category: "pakistani",
-    status: "coming-soon",
-    icon: Heart,
-    badge: "Regional",
-  },
-  {
-    slug: "real-estate-reel",
-    name: "Real Estate Reel Maker",
-    tagline: "Property videos, fast",
-    description:
-      "Photos, price and location turn into a professional property reel with an Urdu voiceover.",
-    category: "pakistani",
-    status: "coming-soon",
-    icon: HomeIcon,
-    badge: "B2B",
-  },
-  {
-    slug: "cricket-graphic",
-    name: "Cricket Score Graphics",
-    tagline: "Match graphics maker",
-    description:
-      "Live match scores, player stats and breaking news in clean cricket-style graphics.",
-    category: "pakistani",
-    status: "coming-soon",
-    icon: Trophy,
-  },
-  {
-    slug: "news-graphic",
-    name: "News Graphic Generator",
-    tagline: "TV channel style",
-    description:
-      "Breaking-news graphics, lower-thirds and tickers in classic news-channel style.",
-    category: "pakistani",
-    status: "coming-soon",
-    icon: Newspaper,
+    api: "external",
   },
   {
     slug: "birthday-wishes",
@@ -959,6 +620,7 @@ export const TOOLS: Tool[] = [
     category: "pakistani",
     status: "active",
     icon: Cake,
+    api: "groq",
   },
   {
     slug: "eid-wishes",
@@ -969,68 +631,7 @@ export const TOOLS: Tool[] = [
     category: "pakistani",
     status: "active",
     icon: PartyPopper,
-  },
-
-  // ============ UTILITY ============
-  {
-    slug: "qr-generator",
-    name: "QR Code Generator",
-    tagline: "Custom QR codes",
-    description:
-      "Generate QR codes for URLs, text, WiFi or contacts — with custom colours and logo support.",
-    category: "utility",
-    status: "active",
-    icon: QrCode,
-  },
-  {
-    slug: "password-generator",
-    name: "Strong Password Generator",
-    tagline: "Secure and memorable",
-    description:
-      "Customizable length and character sets — strong passwords for any account.",
-    category: "utility",
-    status: "active",
-    icon: Code2,
-  },
-  {
-    slug: "currency-converter",
-    name: "Currency Converter",
-    tagline: "PKR ↔ USD ↔ AED",
-    description:
-      "Live exchange rates across PKR, USD, EUR, AED, SAR, INR and more.",
-    category: "utility",
-    status: "active",
-    icon: Calculator,
-  },
-  {
-    slug: "calculator",
-    name: "Loan / EMI / Tax Calculator",
-    tagline: "Financial tools",
-    description:
-      "Home loan EMI, car finance, income tax and zakat — all in one place.",
-    category: "utility",
-    status: "active",
-    icon: Calculator,
-  },
-  {
-    slug: "invoice-generator",
-    name: "Invoice / Receipt Maker",
-    tagline: "Professional invoices",
-    description:
-      "Quick invoices for freelancers and small businesses — local tax formats supported.",
-    category: "utility",
-    status: "coming-soon",
-    icon: Receipt,
-  },
-  {
-    slug: "unit-converter",
-    name: "Unit Converter",
-    tagline: "Length, weight, temp, more",
-    description:
-      "Convert metres / feet, kg / lbs, °C / °F, currency — anything you need.",
-    category: "utility",
-    status: "active",
-    icon: Calculator,
+    api: "groq",
   },
   {
     slug: "wedding-wishes",
@@ -1066,6 +667,28 @@ export const TOOLS: Tool[] = [
     api: "groq",
   },
   {
+    slug: "real-estate-listing",
+    name: "Real Estate Listing Writer",
+    tagline: "Property descriptions",
+    description:
+      "Attractive property listings with the amenities and location highlights buyers care about.",
+    category: "pakistani",
+    status: "active",
+    icon: FileText,
+    api: "groq",
+  },
+  {
+    slug: "joke-generator",
+    name: "Joke Generator",
+    tagline: "Clean humour, on tap",
+    description:
+      "Family-safe jokes, one-liners and local-style humour for any context.",
+    category: "text",
+    status: "active",
+    icon: Smile,
+    api: "groq",
+  },
+  {
     slug: "interview-prep",
     name: "Interview Prep Coach",
     tagline: "10 Q&A in STAR format",
@@ -1087,27 +710,74 @@ export const TOOLS: Tool[] = [
     icon: FileText,
     api: "groq",
   },
+
+  // ============ UTILITY ============
   {
-    slug: "real-estate-listing",
-    name: "Real Estate Listing Writer",
-    tagline: "Property descriptions",
+    slug: "qr-generator",
+    name: "QR Code Generator",
+    tagline: "Custom QR codes",
     description:
-      "Attractive property listings with the amenities and location highlights buyers care about.",
-    category: "pakistani",
+      "Generate QR codes for URLs, text, WiFi or contacts — with custom colours and logo support.",
+    category: "utility",
     status: "active",
-    icon: FileText,
-    api: "groq",
+    icon: QrCode,
+    api: "client",
+  },
+  {
+    slug: "password-generator",
+    name: "Strong Password Generator",
+    tagline: "Secure and memorable",
+    description:
+      "Customizable length and character sets — strong passwords for any account.",
+    category: "utility",
+    status: "active",
+    icon: Code2,
+    api: "client",
+  },
+  {
+    slug: "currency-converter",
+    name: "Currency Converter",
+    tagline: "Live exchange rates",
+    description:
+      "Live exchange rates across PKR, USD, EUR, AED, SAR, INR and more.",
+    category: "utility",
+    status: "active",
+    icon: Calculator,
+    api: "external",
+  },
+  {
+    slug: "calculator",
+    name: "Loan / EMI / Tax Calculator",
+    tagline: "Financial tools",
+    description:
+      "Home loan EMI, car finance, income tax and zakat — all in one place.",
+    category: "utility",
+    status: "active",
+    icon: Calculator,
+    api: "client",
+  },
+  {
+    slug: "unit-converter",
+    name: "Unit Converter",
+    tagline: "Length, weight, temp, more",
+    description:
+      "Convert metres / feet, kg / lbs, °C / °F, currency — anything you need.",
+    category: "utility",
+    status: "active",
+    icon: Calculator,
+    api: "client",
   },
   {
     slug: "devin-coder",
-    name: "Devin Coding Pro (Beta)",
+    name: "Devin Coding Pro",
     tagline: "Premium AI engineer · 1 task/day",
     description:
       "Devin AI plans, codes, tests and ships real software autonomously. Premium compute. 1 task / day per user.",
-    category: "text",
+    category: "developer",
     status: "beta",
     icon: Code2,
     api: "devin",
+    badge: "Beta",
   },
 ];
 

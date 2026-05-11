@@ -86,7 +86,7 @@ export function Hero() {
           {/* Stats row */}
           <div className="mt-16 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-border bg-border max-w-3xl mx-auto animate-fade-up stagger-5">
             <Stat value={`${STATS.active}+`} label="Live tools" />
-            <Stat value={`${STATS.comingSoon}+`} label="Coming soon" />
+            <Stat value="120+" label="Languages" />
             <Stat value="$0" label="To get started" />
           </div>
         </div>

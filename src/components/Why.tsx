@@ -1,4 +1,5 @@
 import { Globe, Lock, Sparkles, Zap } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const WHY = [
   {
@@ -31,7 +32,7 @@ export function Why() {
   return (
     <section className="relative py-24 sm:py-28 border-t border-border-soft">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium">
             Why Laar AI
           </p>
@@ -42,12 +43,13 @@ export function Why() {
             One platform, one consistent design system, one shared account.
             Every tool ships with the same care.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
           {WHY.map((w, i) => (
-            <div
+            <Reveal
               key={w.title}
+              delay={i * 80}
               className="group relative bg-bg-card p-7 transition-colors hover:bg-bg-elevated"
             >
               <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-bg-soft text-primary transition-transform duration-300 group-hover:-translate-y-0.5">
@@ -62,7 +64,7 @@ export function Why() {
               <span className="absolute top-5 right-5 font-mono text-[10px] uppercase tracking-wider text-fg-subtle/60">
                 0{i + 1}
               </span>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

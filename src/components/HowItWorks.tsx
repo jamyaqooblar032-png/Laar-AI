@@ -1,4 +1,5 @@
 import { Search, Wand2, Download } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const STEPS = [
   {
@@ -30,7 +31,7 @@ export function HowItWorks() {
       <div className="bg-grid absolute inset-0 opacity-50" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium">
             How it works
           </p>
@@ -41,15 +42,19 @@ export function HowItWorks() {
             Skip the onboarding flows and pricing pages. Use the tool, get the
             result, move on with your day.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
-          {STEPS.map((s) => (
-            <div key={s.step} className="relative bg-bg-card p-8">
+          {STEPS.map((s, i) => (
+            <Reveal
+              key={s.step}
+              delay={i * 120}
+              className="group relative bg-bg-card p-8 transition-colors hover:bg-bg-elevated"
+            >
               <span className="font-mono text-xs uppercase tracking-wider text-fg-subtle">
                 Step {s.step}
               </span>
-              <div className="mt-5 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-bg-soft text-primary">
+              <div className="mt-5 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-bg-soft text-primary transition-transform duration-300 group-hover:-translate-y-0.5">
                 <s.icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 font-display text-lg font-semibold tracking-tight text-fg">
@@ -58,7 +63,7 @@ export function HowItWorks() {
               <p className="mt-2 text-sm text-fg-muted leading-relaxed">
                 {s.description}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -22,7 +22,7 @@ const PLANS = [
     href: "/tools",
     description: "For creators, students and anyone exploring AI.",
     features: [
-      { text: "All 60+ tools accessible", yes: true },
+      { text: "All 50+ tools accessible", yes: true },
       { text: "30 AI text generations / hour", yes: true },
       { text: "60 chatbot messages / hour", yes: true },
       { text: "Unlimited image generation", yes: true },

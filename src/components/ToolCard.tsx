@@ -21,13 +21,13 @@ export function ToolCard({
     <Link
       href={`/tools/${tool.slug}`}
       className={cn(
-        "group relative flex h-full flex-col rounded-2xl border border-border bg-bg-card p-6 transition-colors hover:border-fg-subtle/30 hover:bg-bg-elevated",
+        "card-premium group relative flex h-full flex-col rounded-2xl border border-border bg-bg-card p-6",
         isComingSoon && "opacity-90",
         className
       )}
     >
       <div className="flex items-start justify-between gap-3">
-        <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-bg-soft text-primary transition-transform duration-300 group-hover:-translate-y-0.5">
+        <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-bg-soft text-primary transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-[1.04]">
           <Icon className="h-5 w-5" />
         </div>
         <div className="flex flex-wrap items-center gap-1.5">

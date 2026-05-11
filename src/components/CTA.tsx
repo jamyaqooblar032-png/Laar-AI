@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
+import { Reveal } from "./Reveal";
 
 export function CTA() {
   return (
     <section className="relative py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-bg-card p-12 sm:p-16 text-center">
+        <Reveal className="relative overflow-hidden rounded-3xl border border-border bg-bg-card p-12 sm:p-16 text-center">
           <div className="bg-grid absolute inset-0 opacity-40" />
           <div className="bg-glow absolute inset-0" />
 
@@ -41,7 +42,7 @@ export function CTA() {
               New tools added every week.
             </p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

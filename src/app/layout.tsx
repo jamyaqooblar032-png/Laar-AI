@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s · Laar AI",
   },
   description:
-    "60+ professional AI tools for writing, image generation, audio, video, documents, and developers. Free forever.",
+    "50+ professional AI tools for writing, image generation, audio, video, and developers. Free forever.",
   keywords: [
     "AI tools",
     "AI chatbot",
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
     url: "https://laar-ai.vercel.app",
     title: "Laar AI — The all-in-one AI toolkit",
     description:
-      "60+ professional AI tools for writing, images, audio, video, and code. Free forever.",
+      "50+ professional AI tools for writing, images, audio, video, and code. Free forever.",
     siteName: "Laar AI",
   },
   twitter: {
     card: "summary_large_image",
     title: "Laar AI — The all-in-one AI toolkit",
     description:
-      "60+ professional AI tools for writing, images, audio, video, and code. Free forever.",
+      "50+ professional AI tools for writing, images, audio, video, and code. Free forever.",
   },
 };
 

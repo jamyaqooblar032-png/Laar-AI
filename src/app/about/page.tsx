@@ -63,8 +63,7 @@ export default function AboutPage() {
                 {STATS.total}+
               </span>{" "}
               tools so far — chatbot, image generation, captions, video editor,
-              AI avatar, voiceover, transcription, document tools, code helpers
-              and more. All free to use.
+              AI avatar, voiceover, transcription and code helpers. All free to use.
             </p>
           </div>
         </section>
@@ -129,27 +128,24 @@ export default function AboutPage() {
               />
               <Phase
                 phase="02"
-                title="Video & avatar"
-                status="Weeks 5-8"
+                title="Reliability & polish"
+                status="Next 4 weeks"
                 items={[
-                  "Browser-based video editor",
-                  "Animated subtitles & captions",
-                  "AI talking-head avatar",
-                  "AI dubbing for short videos",
-                  "Vocals remover and karaoke maker",
-                  "Photo restoration and enhancement",
+                  "Faster inference on every text tool",
+                  "Higher-quality image and avatar output",
+                  "Saved history and per-tool presets",
+                  "Account sign-in and personal workspace",
                 ]}
               />
               <Phase
                 phase="03"
-                title="Documents & utilities"
-                status="Weeks 9-12"
+                title="What’s next"
+                status="Soon"
                 items={[
-                  "Chat with PDF and document Q&A",
-                  "Quran ayat short maker",
-                  "Salat times & qibla compass",
-                  "Cricket score graphics",
-                  "Full utility suite (QR, password, currency, EMI)",
+                  "More languages and richer voices",
+                  "Document understanding (PDF Q&A)",
+                  "Photo restoration and enhancement",
+                  "Mobile apps for iOS and Android",
                 ]}
               />
             </div>
